@@ -637,6 +637,7 @@ export const nicolasData: StudentData = {
       hasEssay: true,
       suggestedMinutes: 90,
       completed: false,
+      daysUntil: 12,
     },
   ],
 

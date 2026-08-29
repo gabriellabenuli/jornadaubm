@@ -198,6 +198,7 @@ export interface SimulationSummary {
   hasEssay: boolean
   suggestedMinutes: number
   completed: boolean
+  daysUntil?: number
   result?: {
     correct: number
     total: number

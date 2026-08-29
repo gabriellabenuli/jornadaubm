@@ -614,6 +614,7 @@ export const joaoData: StudentData = {
       hasEssay: true,
       suggestedMinutes: 90,
       completed: false,
+      daysUntil: 12,
     },
   ],
 
