@@ -1,11 +1,42 @@
 import type { ReactNode } from 'react'
+import type { Tone } from './Badge'
 
-export function StatCard({ value, label, icon }: { value: string; label: string; icon?: ReactNode }) {
+const BG_CLASS: Record<Tone, string> = {
+  math: 'bg-math/45',
+  port: 'bg-port/45',
+  essay: 'bg-essay/45',
+  review: 'bg-review/45',
+  sim: 'bg-sim/45',
+  neutral: 'bg-white',
+}
+
+const ICON_BG_CLASS: Record<Tone, string> = {
+  math: 'bg-math-dark text-white',
+  port: 'bg-port-dark text-white',
+  essay: 'bg-essay-dark text-white',
+  review: 'bg-review-dark text-white',
+  sim: 'bg-sim-dark text-white',
+  neutral: 'bg-ink/10 text-ink',
+}
+
+export function StatCard({
+  value,
+  label,
+  icon,
+  tone = 'neutral',
+}: {
+  value: string
+  label: string
+  icon?: ReactNode
+  tone?: Tone
+}) {
   return (
-    <div className="card-interactive flex flex-col gap-1 rounded-xl2 bg-white p-5 shadow-soft">
-      {icon && <div className="text-ink-soft">{icon}</div>}
-      <span className="text-3xl font-extrabold tracking-tight">{value}</span>
-      <span className="text-sm text-ink-soft">{label}</span>
+    <div className={`card-interactive flex flex-col gap-3 rounded-xl2 p-5 shadow-soft ${BG_CLASS[tone]}`}>
+      {icon && <div className={`flex h-9 w-9 items-center justify-center rounded-full ${ICON_BG_CLASS[tone]}`}>{icon}</div>}
+      <div>
+        <span className="text-3xl font-extrabold tracking-tight">{value}</span>
+        <p className="text-sm text-ink-soft">{label}</p>
+      </div>
     </div>
   )
 }

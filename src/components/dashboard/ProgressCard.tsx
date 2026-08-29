@@ -1,3 +1,4 @@
+import { CalendarCheck, Clock, ListChecks, Target } from 'lucide-react'
 import type { PerformanceOverview } from '../../data/types'
 import { StatCard } from '../shared/StatCard'
 
@@ -7,10 +8,15 @@ export function ProgressCard({ overview }: { overview: PerformanceOverview }) {
 
   return (
     <div className="grid grid-cols-4 gap-4">
-      <StatCard value={String(overview.daysStudied)} label="dias estudados" />
-      <StatCard value={`${hours}h${String(minutes).padStart(2, '0')}`} label="de estudo" />
-      <StatCard value={String(overview.questionsAnswered)} label="questões" />
-      <StatCard value={`${overview.accuracyRate}%`} label="de acertos" />
+      <StatCard value={String(overview.daysStudied)} label="dias estudados" tone="math" icon={<CalendarCheck size={18} />} />
+      <StatCard
+        value={`${hours}h${String(minutes).padStart(2, '0')}`}
+        label="de estudo"
+        tone="essay"
+        icon={<Clock size={18} />}
+      />
+      <StatCard value={String(overview.questionsAnswered)} label="questões" tone="port" icon={<ListChecks size={18} />} />
+      <StatCard value={`${overview.accuracyRate}%`} label="de acertos" tone="review" icon={<Target size={18} />} />
     </div>
   )
 }

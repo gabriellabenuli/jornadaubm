@@ -34,11 +34,8 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-6">
-        <div className="col-span-2">
-          <ProgressCard overview={data.performanceOverview} />
-        </div>
-        <SiblingRace nicolas={nicolasData} joao={joaoData} />
+      <div className="mt-6">
+        <ProgressCard overview={data.performanceOverview} />
       </div>
 
       <div className="mt-6 grid grid-cols-3 gap-6">
@@ -54,6 +51,7 @@ export default function Dashboard() {
         <div className="flex flex-col gap-6">
           <MonthCalendar journey={data.journey} examDate={data.exam.date} />
           <UpcomingSimulations simulations={data.simulations} studentId={studentId as StudentId} />
+          <SiblingRace nicolas={nicolasData} joao={joaoData} />
         </div>
       </div>
     </div>
