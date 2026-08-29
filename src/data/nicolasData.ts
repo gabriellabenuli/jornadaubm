@@ -611,7 +611,7 @@ export const nicolasData: StudentData = {
         subject: 'portugues',
         topic: 'Interpretação de texto',
         prompt: 'Observe a tirinha a seguir e responda: por que o humor da tirinha acontece?',
-        media: { kind: 'tirinha', caption: 'Tirinha: personagem espera resposta de um robô que trava ao "pensar demais".' },
+        media: { kind: 'tirinha', variant: 'robot', caption: 'Tirinha: personagem espera resposta de um robô que trava ao "pensar demais".' },
         options: [
           { id: 'a', label: 'Porque o robô fala uma língua diferente' },
           { id: 'b', label: 'Porque há uma quebra de expectativa entre o que se espera de uma máquina e sua reação' },

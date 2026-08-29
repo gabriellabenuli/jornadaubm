@@ -572,7 +572,7 @@ export const joaoData: StudentData = {
         subject: 'portugues',
         topic: 'Interpretação de tirinhas',
         prompt: 'Observe a tirinha e responda: o que causa o efeito de humor nela?',
-        media: { kind: 'tirinha', caption: 'Tirinha: criança pede para o cachorro "buscar a bola", e ele traz outra coisa em vez da bola.' },
+        media: { kind: 'tirinha', variant: 'dog', caption: 'Tirinha: criança pede para o cachorro "buscar a bola", e ele traz outra coisa em vez da bola.' },
         options: [
           { id: 'a', label: 'O cachorro entende tudo perfeitamente' },
           { id: 'b', label: 'A quebra de expectativa entre o pedido e o que o cachorro realmente faz' },
@@ -890,6 +890,31 @@ export const joaoData: StudentData = {
         correctOptionId: 'b',
         explanation: 'O humor em tirinhas costuma nascer de uma quebra de expectativa entre o que o leitor espera e o que realmente acontece.',
         stepByStep: ['Pense no que o leitor espera que aconteça', 'Compare com o que realmente acontece no último quadrinho', 'A diferença entre os dois costuma ser o motivo do humor'],
+      },
+      {
+        id: 'it7',
+        subject: 'portugues',
+        topic: 'Interpretação de tirinhas',
+        prompt: 'Na tirinha, o personagem diz que vai ler o livro "depois" e pega o celular. No último quadrinho, já se passaram 3 horas e ele continua no celular. Qual crítica essa tirinha faz?',
+        media: {
+          kind: 'tirinha',
+          variant: 'phone',
+          caption: 'Tirinha: personagem vê um livro novo, decide deixar para depois e pega o celular — no último quadro, já se passaram 3 horas e ele continua no celular.',
+        },
+        options: [
+          { id: 'a', label: 'Que celulares são proibidos na escola' },
+          { id: 'b', label: 'Que livros são melhores que celulares em qualquer situação' },
+          { id: 'c', label: 'Que é fácil perder a noção do tempo e adiar algo por causa do celular' },
+          { id: 'd', label: 'Que o personagem não gosta de ler' },
+          { id: 'e', label: 'Que 3 horas é pouco tempo' },
+        ],
+        correctOptionId: 'c',
+        explanation: 'A tirinha usa o exagero do tempo (3 horas) para criticar, de forma bem-humorada, como é fácil se distrair no celular e adiar outras atividades, como a leitura.',
+        stepByStep: [
+          'Observe o contraste: a intenção era só "mais 5 minutinhos" no celular.',
+          'Observe o exagero no último quadrinho: 3 horas se passaram.',
+          'Esse tipo de exagero é usado para fazer uma crítica de forma engraçada — nesse caso, sobre como é fácil se distrair e perder a noção do tempo.',
+        ],
       },
       {
         id: 'it2',

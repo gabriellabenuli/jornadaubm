@@ -129,7 +129,7 @@ export interface Question {
   subject: SubjectKey
   topic: string
   prompt: string
-  media?: { kind: 'tirinha' | 'grafico' | 'tabela' | 'imagem'; caption: string }
+  media?: { kind: 'tirinha' | 'grafico' | 'tabela' | 'imagem'; caption: string; variant?: string }
   options: QuestionOption[]
   correctOptionId: string
   explanation: string

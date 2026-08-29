@@ -17,8 +17,7 @@ const MEDIA_LABEL: Record<NonNullable<Question['media']>['kind'], string> = {
   imagem: 'Imagem',
 }
 
-const MEDIA_ILLUSTRATION: Record<NonNullable<Question['media']>['kind'], () => ReactElement> = {
-  tirinha: ComicIllustration,
+const MEDIA_ILLUSTRATION: Record<Exclude<NonNullable<Question['media']>['kind'], 'tirinha'>, () => ReactElement> = {
   grafico: ChartIllustration,
   tabela: TableIllustration,
   imagem: PictureIllustration,
@@ -35,7 +34,8 @@ export function QuestionCard({
   revealed: boolean
   onSelect: (optionId: string) => void
 }) {
-  const MediaIllustration = question.media ? MEDIA_ILLUSTRATION[question.media.kind] : null
+  const media = question.media
+  const MediaIllustration = media && media.kind !== 'tirinha' ? MEDIA_ILLUSTRATION[media.kind] : null
 
   return (
     <div key={question.id} className="animate-fade-in-up flex flex-col gap-5 rounded-xl2 bg-white p-6 shadow-soft">
@@ -43,14 +43,14 @@ export function QuestionCard({
         <Badge tone={SUBJECT_TONE[question.subject]}>{question.topic}</Badge>
       </div>
 
-      {question.media && MediaIllustration && (
+      {media && (
         <div className="flex flex-col gap-2 overflow-hidden rounded-xl2">
           <div className="h-40 w-full">
-            <MediaIllustration />
+            {media.kind === 'tirinha' ? <ComicIllustration variant={media.variant} /> : MediaIllustration && <MediaIllustration />}
           </div>
           <div className="flex items-center gap-2 px-1">
-            <Badge tone="neutral">{MEDIA_LABEL[question.media.kind]}</Badge>
-            <span className="text-sm text-ink-soft">{question.media.caption}</span>
+            <Badge tone="neutral">{MEDIA_LABEL[media.kind]}</Badge>
+            <span className="text-sm text-ink-soft">{media.caption}</span>
           </div>
         </div>
       )}

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode, ReactElement } from 'react'
 
 const INK = '#181614'
 
@@ -283,6 +283,109 @@ function BlobBird({
   )
 }
 
+/** Original round "robot pal" — rectangular head with antenna, two square
+ * LED eyes, a boxy body. Not based on any existing character. */
+function RobotPal({
+  x,
+  y,
+  scale = 1,
+  flip = false,
+  bodyColor,
+  accentColor,
+  dizzy = false,
+  frozen = false,
+}: {
+  x: number
+  y: number
+  scale?: number
+  flip?: boolean
+  bodyColor: string
+  accentColor: string
+  dizzy?: boolean
+  frozen?: boolean
+}) {
+  return (
+    <g
+      transform={`translate(${x},${y}) scale(${(flip ? -1 : 1) * scale},${scale})`}
+      stroke={INK}
+      strokeWidth="3"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+    >
+      <line x1="-14" y1="34" x2="-14" y2="46" />
+      <line x1="14" y1="34" x2="14" y2="46" />
+      <rect x="-30" y="-2" width="60" height="36" rx="8" fill={bodyColor} />
+      <rect x="-24" y="4" width="48" height="10" rx="3" fill={accentColor} />
+
+      <line x1="0" y1="-40" x2="0" y2="-30" />
+      <circle cx="0" cy="-43" r="4" fill={accentColor} />
+
+      <rect x="-22" y="-38" width="44" height="30" rx="10" fill="white" />
+      {frozen ? (
+        <>
+          <line x1="-11" y1="-27" x2="-3" y2="-19" />
+          <line x1="-3" y1="-27" x2="-11" y2="-19" />
+          <line x1="3" y1="-27" x2="11" y2="-19" />
+          <line x1="11" y1="-27" x2="3" y2="-19" />
+        </>
+      ) : dizzy ? (
+        <>
+          <circle cx="-7" cy="-23" r="5" fill="none" strokeWidth="2" />
+          <circle cx="8" cy="-23" r="5" fill="none" strokeWidth="2" />
+        </>
+      ) : (
+        <>
+          <rect x="-12" y="-27" width="7" height="7" rx="1.5" fill={INK} stroke="none" />
+          <rect x="5" y="-27" width="7" height="7" rx="1.5" fill={INK} stroke="none" />
+        </>
+      )}
+    </g>
+  )
+}
+
+/** Original round "dog pal" — floppy triangular ears, a snout bump, a curled
+ * tail. Not based on any existing character. */
+function DogPal({
+  x,
+  y,
+  scale = 1,
+  flip = false,
+  bodyColor,
+  accentColor,
+  running = false,
+}: {
+  x: number
+  y: number
+  scale?: number
+  flip?: boolean
+  bodyColor: string
+  accentColor: string
+  running?: boolean
+}) {
+  return (
+    <g
+      transform={`translate(${x},${y}) scale(${(flip ? -1 : 1) * scale},${scale})`}
+      stroke={INK}
+      strokeWidth="3"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+    >
+      <line x1="-16" y1={running ? 20 : 30} x2={running ? -24 : -18} y2="44" />
+      <line x1="16" y1={running ? 26 : 30} x2={running ? 22 : 18} y2="44" />
+
+      <ellipse cx="0" cy="10" rx="30" ry="22" fill={bodyColor} />
+      <path d="M-24 -6 Q-34 -22 -18 -20 Q-14 -12 -18 0 Z" fill={accentColor} />
+      <path d="M24 -6 Q34 -22 18 -20 Q14 -12 18 0 Z" fill={accentColor} />
+
+      <ellipse cx="0" cy="14" rx="10" ry="7" fill="white" />
+      <circle cx="0" cy="14" r="2.5" fill={INK} stroke="none" />
+      <circle cx="-9" cy="2" r="2.2" fill={INK} stroke="none" />
+
+      <path d={running ? 'M-28 8 Q-40 -2 -34 -14' : 'M-28 12 Q-38 4 -34 -6'} fill="none" />
+    </g>
+  )
+}
+
 function SpeechBubble({ x, y, w, h }: { x: number; y: number; w: number; h: number }) {
   return (
     <path
@@ -295,11 +398,8 @@ function SpeechBubble({ x, y, w, h }: { x: number; y: number; w: number; h: numb
   )
 }
 
-export function ComicIllustration() {
-  const bird1 = { bodyColor: '#ffd23f', accentColor: 'var(--color-sim-dark)' }
-  const bird2 = { bodyColor: 'var(--color-math)', accentColor: 'var(--color-math-dark)' }
+function ComicFrame({ children }: { children: ReactNode }) {
   const panelW = 110
-
   return (
     <svg viewBox="0 0 440 120" preserveAspectRatio="xMidYMid slice" className="h-full w-full">
       <rect width="440" height="120" fill="white" />
@@ -307,50 +407,139 @@ export function ComicIllustration() {
         <line key={i} x1={i * panelW} y1="3" x2={i * panelW} y2="117" stroke={INK} strokeWidth="3" />
       ))}
       <rect x="2" y="2" width="436" height="116" rx="4" fill="none" stroke={INK} strokeWidth="4" />
-
-      {/* panel 1 */}
-      <g>
-        <SpeechBubble x={12} y={8} w={82} h={26} />
-        <text x="53" y="21" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
-          E AGORA? COMO
-        </text>
-        <text x="53" y="30" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
-          RESOLVO ISSO?
-        </text>
-        <BlobBird x={55} y={84} scale={0.72} bodyColor={bird1.bodyColor} accentColor={bird1.accentColor} armUp />
-      </g>
-
-      {/* panel 2 */}
-      <g transform={`translate(${panelW},0)`}>
-        <SpeechBubble x={14} y={8} w={84} h={26} />
-        <text x="56" y="21" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
-          PASSO A PASSO,
-        </text>
-        <text x="56" y="30" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
-          SEM PRESSA!
-        </text>
-        <BlobBird x={55} y={84} scale={0.72} flip bodyColor={bird2.bodyColor} accentColor={bird2.accentColor} />
-      </g>
-
-      {/* panel 3 */}
-      <g transform={`translate(${panelW * 2},0)`}>
-        <SpeechBubble x={20} y={8} w={70} h={24} />
-        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
-          CONSEGUI!
-        </text>
-        <BlobBird x={55} y={84} scale={0.72} bodyColor={bird1.bodyColor} accentColor={bird1.accentColor} armUp />
-      </g>
-
-      {/* panel 4 */}
-      <g transform={`translate(${panelW * 3},0)`}>
-        <SpeechBubble x={14} y={8} w={82} h={24} />
-        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
-          ERA SÓ ISSO?
-        </text>
-        <BlobBird x={55} y={84} scale={0.72} flip bodyColor={bird2.bodyColor} accentColor={bird2.accentColor} holdingPhone />
-      </g>
+      {children}
     </svg>
   )
+}
+
+function ComicLine({ x, children }: { x: number; children: ReactNode }) {
+  return <g transform={`translate(${x},0)`}>{children}</g>
+}
+
+const ROBOT_COMIC = () => {
+  const kid = { bodyColor: '#ffd23f', accentColor: 'var(--color-sim-dark)' }
+  const bot = { bodyColor: 'var(--color-math)', accentColor: 'var(--color-math-dark)' }
+  return (
+    <ComicFrame>
+      <ComicLine x={0}>
+        <SpeechBubble x={10} y={8} w={80} h={26} />
+        <text x="50" y="21" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          QUANTO É
+        </text>
+        <text x="50" y="30" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          7 X 8, ROBÔ?
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} bodyColor={kid.bodyColor} accentColor={kid.accentColor} armUp />
+      </ComicLine>
+      <ComicLine x={110}>
+        <SpeechBubble x={22} y={10} w={66} h={20} />
+        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
+          PROCESSANDO...
+        </text>
+        <RobotPal x={55} y={84} scale={0.85} bodyColor={bot.bodyColor} accentColor={bot.accentColor} dizzy />
+      </ComicLine>
+      <ComicLine x={220}>
+        <SpeechBubble x={22} y={10} w={66} h={20} />
+        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
+          AINDA PENSANDO...
+        </text>
+        <RobotPal x={55} y={84} scale={0.85} bodyColor={bot.bodyColor} accentColor={bot.accentColor} dizzy />
+      </ComicLine>
+      <ComicLine x={330}>
+        <SpeechBubble x={18} y={10} w={74} h={20} />
+        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
+          ERRO: PENSOU DEMAIS
+        </text>
+        <RobotPal x={55} y={84} scale={0.85} bodyColor={bot.bodyColor} accentColor={bot.accentColor} frozen />
+      </ComicLine>
+    </ComicFrame>
+  )
+}
+
+const DOG_COMIC = () => {
+  const kid = { bodyColor: 'var(--color-port)', accentColor: 'var(--color-port-dark)' }
+  const dog = { bodyColor: '#f2c98a', accentColor: '#c9a36a' }
+  return (
+    <ComicFrame>
+      <ComicLine x={0}>
+        <SpeechBubble x={14} y={8} w={76} h={20} />
+        <text x="52" y="21" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
+          BUSCA A BOLA!
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} bodyColor={kid.bodyColor} accentColor={kid.accentColor} armUp />
+      </ComicLine>
+      <ComicLine x={110}>
+        <DogPal x={55} y={82} scale={0.82} bodyColor={dog.bodyColor} accentColor={dog.accentColor} running />
+      </ComicLine>
+      <ComicLine x={220}>
+        <DogPal x={55} y={82} scale={0.82} flip bodyColor={dog.bodyColor} accentColor={dog.accentColor} />
+      </ComicLine>
+      <ComicLine x={330}>
+        <SpeechBubble x={10} y={6} w={84} h={26} />
+        <text x="52" y="18" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          ISSO NÃO É
+        </text>
+        <text x="52" y="27" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          A BOLA!
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} bodyColor={kid.bodyColor} accentColor={kid.accentColor} />
+        <ellipse cx="80" cy="72" rx="7" ry="5" fill="#8a6d4a" stroke={INK} strokeWidth="2" />
+      </ComicLine>
+    </ComicFrame>
+  )
+}
+
+const PHONE_COMIC = () => {
+  const kid = { bodyColor: 'var(--color-essay)', accentColor: 'var(--color-essay-dark)' }
+  return (
+    <ComicFrame>
+      <ComicLine x={0}>
+        <SpeechBubble x={8} y={8} w={86} h={26} />
+        <text x="51" y="21" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          OLHA ESSE LIVRO
+        </text>
+        <text x="51" y="30" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          NOVO NA ESTANTE!
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} bodyColor={kid.bodyColor} accentColor={kid.accentColor} armUp />
+      </ComicLine>
+      <ComicLine x={110}>
+        <SpeechBubble x={16} y={10} w={78} h={20} />
+        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
+          DEPOIS EU LEIO...
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} flip bodyColor={kid.bodyColor} accentColor={kid.accentColor} holdingPhone />
+      </ComicLine>
+      <ComicLine x={220}>
+        <SpeechBubble x={14} y={10} w={82} h={20} />
+        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
+          SÓ MAIS 5 MIN...
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} flip bodyColor={kid.bodyColor} accentColor={kid.accentColor} holdingPhone />
+      </ComicLine>
+      <ComicLine x={330}>
+        <SpeechBubble x={6} y={6} w={92} h={26} />
+        <text x="52" y="18" textAnchor="middle" fontSize="7" fontWeight="800" fill={INK}>
+          3 HORAS DEPOIS,
+        </text>
+        <text x="52" y="27" textAnchor="middle" fontSize="7" fontWeight="800" fill={INK}>
+          AINDA NO CELULAR
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} flip bodyColor={kid.bodyColor} accentColor={kid.accentColor} holdingPhone />
+      </ComicLine>
+    </ComicFrame>
+  )
+}
+
+const COMIC_VARIANTS: Record<string, () => ReactElement> = {
+  robot: ROBOT_COMIC,
+  dog: DOG_COMIC,
+  phone: PHONE_COMIC,
+}
+
+export function ComicIllustration({ variant = 'robot' }: { variant?: string }) {
+  const Comic = COMIC_VARIANTS[variant] ?? ROBOT_COMIC
+  return <Comic />
 }
 
 export function ChartIllustration() {
