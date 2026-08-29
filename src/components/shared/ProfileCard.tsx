@@ -12,8 +12,10 @@ export function ProfileCard({
   photoUrl: string | null
   onPhotoChange: (dataUrl: string) => void
 }) {
-  const { profile, xp, streak, exam } = data
-  const journeyPercent = Math.round((exam.currentWeek / exam.weeksTotal) * 100)
+  const { profile, xp, streak } = data
+  const allDays = data.journey.flatMap((w) => w.days)
+  const doneDays = allDays.filter((d) => d.status === 'done').length
+  const journeyPercent = allDays.length > 0 ? Math.round((doneDays / allDays.length) * 100) : 0
 
   return (
     <div
