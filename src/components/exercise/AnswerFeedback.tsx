@@ -51,7 +51,7 @@ export function AnswerFeedback({
         </div>
       )}
 
-      <div className="flex items-center justify-between pt-2">
+      <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
         {!correct ? (
           <button
             onClick={() => {
@@ -59,17 +59,17 @@ export function AnswerFeedback({
               setAdded(true)
             }}
             disabled={added}
-            className="rounded-xl2 border border-ink/15 bg-white px-4 py-2 text-sm font-semibold transition-opacity disabled:opacity-60"
+            className="order-2 rounded-xl2 border border-ink/15 bg-white px-4 py-2.5 text-sm font-semibold transition-opacity disabled:opacity-60 sm:order-1 sm:py-2"
           >
             {added ? 'Adicionado ✓' : 'Adicionar ao caderno de erros'}
           </button>
         ) : (
-          <span />
+          <span className="hidden sm:block" />
         )}
 
         <button
           onClick={onNext}
-          className="rounded-xl2 bg-ink px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          className="order-1 rounded-xl2 bg-ink px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:order-2 sm:py-2"
         >
           {isLast ? 'Ver resultado' : 'Próxima questão'}
         </button>

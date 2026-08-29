@@ -66,7 +66,7 @@ export default function Exercise() {
         <button
           onClick={handleAnswer}
           disabled={!selectedOptionId}
-          className="self-start rounded-xl2 bg-ink px-6 py-3 font-semibold text-white transition-opacity disabled:opacity-40"
+          className="w-full rounded-xl2 bg-ink px-6 py-3 font-semibold text-white transition-opacity disabled:opacity-40 sm:w-auto sm:self-start"
         >
           Responder
         </button>

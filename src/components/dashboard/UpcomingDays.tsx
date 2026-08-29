@@ -26,7 +26,7 @@ export function UpcomingDays({ journey, studentId }: { journey: JourneyWeek[]; s
         </button>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
         {upcoming.map((day, i) => (
           <div
             key={day.date}

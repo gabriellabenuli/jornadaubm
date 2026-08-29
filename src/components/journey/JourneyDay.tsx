@@ -17,7 +17,7 @@ const STATUS_CLASS: Record<JourneyDayData['status'], string> = {
 export function JourneyDay({ day }: { day: JourneyDayData }) {
   return (
     <div
-      className={`card-interactive flex min-w-[180px] flex-1 flex-col gap-3 rounded-xl2 border p-4 ${STATUS_CLASS[day.status]}`}
+      className={`card-interactive flex w-full flex-col gap-3 rounded-xl2 border p-4 sm:w-[calc(50%-0.5rem)] sm:min-w-[180px] sm:flex-1 lg:w-auto ${STATUS_CLASS[day.status]}`}
     >
       <div className="flex items-baseline justify-between">
         <span className="text-xs font-bold uppercase text-ink-soft">{day.weekday}</span>

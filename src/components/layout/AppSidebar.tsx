@@ -37,7 +37,7 @@ export function AppSidebar({ studentId }: { studentId: StudentId }) {
   const errorCount = data.errorNotebook.entries.length
 
   return (
-    <aside className="flex w-64 shrink-0 flex-col justify-between border-r border-ink/5 bg-white px-4 py-8">
+    <aside className="hidden w-64 shrink-0 flex-col justify-between border-r border-ink/5 bg-white px-4 py-8 md:flex">
       <div>
         <div className="mb-8 px-3 text-lg font-extrabold tracking-tight">UBM Jornada</div>
         <nav className="flex flex-col gap-1">

@@ -30,11 +30,8 @@ export default function Essay() {
 
       <EssayChecklist items={data.essays.checklist} />
 
-      <div className="flex items-center gap-4">
-        <button
-          disabled
-          className="rounded-xl2 bg-ink/10 px-6 py-3 font-semibold text-ink-soft"
-        >
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+        <button disabled className="w-full rounded-xl2 bg-ink/10 px-6 py-3 font-semibold text-ink-soft sm:w-auto">
           Enviar redação
         </button>
         <span className="text-sm text-ink-soft">Em breve: correção automática</span>

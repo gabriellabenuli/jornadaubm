@@ -100,7 +100,7 @@ function Person({
 
 function Panel({ color, children }: { color: string; children: ReactNode }) {
   return (
-    <svg viewBox="0 0 220 160" className="h-full w-full">
+    <svg viewBox="0 0 220 160" preserveAspectRatio="xMidYMid slice" className="h-full w-full">
       <rect width="220" height="160" rx="20" fill={color} />
       {children}
     </svg>

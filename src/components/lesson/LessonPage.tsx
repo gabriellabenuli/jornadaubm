@@ -54,7 +54,7 @@ export function LessonPage({ lesson }: { lesson: LessonContent }) {
         <h3 className="mb-3 font-semibold">Vamos testar?</h3>
         <button
           onClick={() => navigate(`/${studentId}/materia/${lesson.subject}/exercicios/${lesson.exerciseSetId}`)}
-          className="rounded-xl2 bg-ink px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+          className="w-full rounded-xl2 bg-ink px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto"
         >
           Ir para exercícios
         </button>

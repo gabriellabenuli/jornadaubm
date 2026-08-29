@@ -29,27 +29,27 @@ export default function Dashboard() {
 
       <JourneyTimeline exam={data.exam} />
 
-      <div className="grid grid-cols-3 gap-6">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+        <div className="md:col-span-2">
           <DailyMission mission={data.dailyMission} />
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 md:gap-6">
           <CurrentFocus focus={data.currentFocus} />
           <StudyStreak streak={data.streak} />
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-6">
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3 md:mt-6 md:gap-6">
         <SubjectCard subject={data.subjects.matematica} studentId={studentId as StudentId} />
         <SubjectCard subject={data.subjects.portugues} studentId={studentId as StudentId} />
         <SubjectCard subject={data.subjects.redacao} studentId={studentId as StudentId} />
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-6">
-        <div className="col-span-2">
+      <div className="mt-4 grid grid-cols-1 gap-4 md:mt-6 md:grid-cols-3 md:gap-6">
+        <div className="md:col-span-2">
           <UpcomingDays journey={data.journey} studentId={studentId as StudentId} />
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 md:gap-6">
           <MonthCalendar journey={data.journey} examDate={data.exam.date} />
           <UpcomingSimulations simulations={data.simulations} studentId={studentId as StudentId} />
           <SiblingRace nicolas={nicolasData} joao={joaoData} />

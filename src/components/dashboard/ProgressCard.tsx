@@ -7,7 +7,7 @@ export function ProgressCard({ overview, size = 'md' }: { overview: PerformanceO
   const minutes = Math.round((overview.hoursStudied % 1) * 60)
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
       <StatCard
         value={String(overview.daysStudied)}
         label="dias estudados"

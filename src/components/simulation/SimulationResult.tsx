@@ -35,7 +35,7 @@ export function SimulationResult({ sim, allSims }: { sim: SimulationSummary; all
           <span className="pb-1 text-2xl font-bold text-ink-soft">{percent}%</span>
         </div>
 
-        <div className="mt-4 grid grid-cols-3 gap-4">
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
           {result.bySubject.map((s) => (
             <div key={s.subject} className="rounded-xl2 bg-white p-4 shadow-soft">
               <span className="text-sm text-ink-soft">{SUBJECT_LABEL[s.subject]}</span>
@@ -68,7 +68,7 @@ export function SimulationResult({ sim, allSims }: { sim: SimulationSummary; all
         </div>
       )}
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
         <div className="rounded-xl2 bg-essay/20 p-5">
           <h3 className="font-semibold text-essay-ink">Foi muito bem</h3>
           <ul className="mt-3 flex flex-col gap-2 text-sm">

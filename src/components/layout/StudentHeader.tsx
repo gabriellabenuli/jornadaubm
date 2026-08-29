@@ -24,8 +24,8 @@ export function StudentHeader({
   const setAvatarPhoto = useAppStore((s) => s.setAvatarPhoto)
 
   return (
-    <header className="flex items-start justify-between gap-6 pb-8">
-      <div className="flex items-start gap-4">
+    <header className="flex flex-col gap-4 pb-6 sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:pb-8">
+      <div className="flex items-start gap-3 sm:gap-4">
         <AvatarUpload
           name={profile.name}
           color={profile.avatarColor}
@@ -33,19 +33,19 @@ export function StudentHeader({
           onChange={(url) => setAvatarPhoto(profile.id, url)}
         />
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight">
+          <h1 className="text-xl font-extrabold tracking-tight sm:text-3xl">
             {greeting()}, {profile.name} 👋
           </h1>
-          <p className="mt-1 text-ink-soft">Vamos avançar mais um pouco hoje?</p>
-          <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-ink-soft">
+          <p className="mt-1 text-sm text-ink-soft sm:text-base">Vamos avançar mais um pouco hoje?</p>
+          <p className="mt-2 flex items-center gap-2 text-xs font-semibold text-ink-soft sm:mt-3 sm:text-sm">
             <CalendarClock size={16} />
             Faltam {daysRemaining} dias para a prova
           </p>
         </div>
       </div>
 
-      <div className="flex flex-col items-end gap-2">
-        <span className="text-sm font-semibold text-ink-soft">
+      <div className="flex flex-col gap-2 sm:items-end">
+        <span className="text-xs font-semibold text-ink-soft sm:text-sm">
           Nível {xp.level} · {xp.total.toLocaleString('pt-BR')} XP
         </span>
         <XPBar xp={xp} />

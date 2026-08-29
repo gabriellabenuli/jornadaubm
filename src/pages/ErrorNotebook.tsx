@@ -33,7 +33,7 @@ export default function ErrorNotebook() {
         <p className="mt-1 text-ink-soft">{total} erros para revisar</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
         <StatCard
           value={String(errorNotebook.bySubjectCount.matematica)}
           label="Matemática"

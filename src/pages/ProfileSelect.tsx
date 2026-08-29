@@ -18,15 +18,15 @@ export default function ProfileSelect() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-6 py-16">
-      <div className="mb-12 max-w-xl text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight">Quem vai estudar hoje?</h1>
-        <p className="mt-3 text-ink-soft">
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 py-12 sm:px-6 sm:py-16">
+      <div className="mb-8 max-w-xl text-center sm:mb-12">
+        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Quem vai estudar hoje?</h1>
+        <p className="mt-3 text-sm text-ink-soft sm:text-base">
           Cada estudante tem sua própria jornada, progresso e conquistas — independentes um do outro.
         </p>
       </div>
 
-      <div className="grid w-full max-w-4xl grid-cols-2 gap-8">
+      <div className="grid w-full max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-8">
         <ProfileCard
           data={nicolasData}
           onSelect={() => handleSelect('nicolas')}

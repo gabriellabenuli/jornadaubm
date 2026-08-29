@@ -20,7 +20,7 @@ export default function Performance() {
         <p className="mt-1 text-ink-soft">Sua evolução até aqui, em números.</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
         <StatCard value={`${overview.accuracyRate}%`} label="taxa geral de acertos" tone="review" icon={<Target size={18} />} />
         <StatCard value={`${overview.mathAccuracy}%`} label="Matemática" tone="math" icon={<Calculator size={18} />} />
         <StatCard value={`${overview.portAccuracy}%`} label="Português" tone="port" icon={<BookOpen size={18} />} />
@@ -46,7 +46,7 @@ export default function Performance() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
         <div className="rounded-xl2 bg-essay/20 p-5">
           <h3 className="font-semibold text-essay-ink">Pontos fortes</h3>
           <div className="mt-4 flex flex-col gap-3">
