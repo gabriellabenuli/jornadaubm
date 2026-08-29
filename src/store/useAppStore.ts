@@ -18,6 +18,7 @@ interface AppStoreState {
   completedStages: Record<StudentId, string[]>
   answers: Record<StudentId, SessionAnswer[]>
   errorNotebookAdditions: Record<StudentId, string[]>
+  avatarPhoto: Record<StudentId, string | null>
 }
 
 interface AppStoreActions {
@@ -26,6 +27,7 @@ interface AppStoreActions {
   completeStage: (studentId: StudentId, stageId: string) => void
   recordAnswer: (studentId: StudentId, answer: SessionAnswer) => void
   addToErrorNotebook: (studentId: StudentId, questionId: string) => void
+  setAvatarPhoto: (studentId: StudentId, dataUrl: string | null) => void
   getStudentData: (studentId: StudentId) => StudentData
 }
 
@@ -39,8 +41,12 @@ export const useAppStore = create<AppStoreState & AppStoreActions>()(
       completedStages: { nicolas: [], joao: [] },
       answers: { nicolas: [], joao: [] },
       errorNotebookAdditions: { nicolas: [], joao: [] },
+      avatarPhoto: { nicolas: null, joao: null },
 
       setActiveStudent: (id) => set({ activeStudentId: id }),
+
+      setAvatarPhoto: (studentId, dataUrl) =>
+        set((s) => ({ avatarPhoto: { ...s.avatarPhoto, [studentId]: dataUrl } })),
 
       addXP: (studentId, amount) =>
         set((s) => ({ sessionXP: { ...s.sessionXP, [studentId]: s.sessionXP[studentId] + amount } })),

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Question } from '../../data/types'
+import { Confetti } from '../shared/Confetti'
 
 export function AnswerFeedback({
   question,
@@ -19,11 +20,14 @@ export function AnswerFeedback({
   const correctLabel = question.options.find((o) => o.id === question.correctOptionId)?.label
 
   return (
-    <div className={`flex flex-col gap-4 rounded-xl2 p-6 shadow-soft ${correct ? 'bg-essay/20' : 'bg-port/20'}`}>
+    <div
+      className={`animate-pop-in relative flex flex-col gap-4 overflow-hidden rounded-xl2 p-6 shadow-soft ${correct ? 'bg-essay/20' : 'bg-port/20'}`}
+    >
+      {correct && <Confetti />}
       {correct ? (
         <div className="flex items-center justify-between">
           <span className="text-lg font-extrabold text-essay-ink">✓ Muito bem</span>
-          <span className="font-semibold text-essay-ink">+5 XP</span>
+          <span className="animate-xp-float font-semibold text-essay-ink">+5 XP</span>
         </div>
       ) : (
         <div>

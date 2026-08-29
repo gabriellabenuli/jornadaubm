@@ -8,10 +8,13 @@ import { CurrentFocus } from '../components/dashboard/CurrentFocus'
 import { StudyStreak } from '../components/dashboard/StudyStreak'
 import { ProgressCard } from '../components/dashboard/ProgressCard'
 import { SubjectCard } from '../components/dashboard/SubjectCard'
+import { SiblingRace } from '../components/dashboard/SiblingRace'
 
 export default function Dashboard() {
   const { studentId } = useParams<{ studentId: StudentId }>()
   const data = useAppStore.getState().getStudentData(studentId as StudentId)
+  const nicolasData = useAppStore.getState().getStudentData('nicolas')
+  const joaoData = useAppStore.getState().getStudentData('joao')
 
   return (
     <div className="flex flex-col">
@@ -28,8 +31,11 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="mt-6">
-        <ProgressCard overview={data.performanceOverview} />
+      <div className="mt-6 grid grid-cols-3 gap-6">
+        <div className="col-span-2">
+          <ProgressCard overview={data.performanceOverview} />
+        </div>
+        <SiblingRace nicolas={nicolasData} joao={joaoData} />
       </div>
 
       <div className="mt-6 grid grid-cols-3 gap-6">

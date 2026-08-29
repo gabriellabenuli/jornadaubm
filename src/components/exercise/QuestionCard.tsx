@@ -1,5 +1,7 @@
+import type { ReactElement } from 'react'
 import type { Question } from '../../data/types'
 import { Badge } from '../shared/Badge'
+import { ComicIllustration, ChartIllustration, TableIllustration, PictureIllustration } from '../illustrations/Illustrations'
 
 const SUBJECT_TONE: Record<Question['subject'], 'math' | 'port' | 'essay'> = {
   matematica: 'math',
@@ -8,10 +10,17 @@ const SUBJECT_TONE: Record<Question['subject'], 'math' | 'port' | 'essay'> = {
 }
 
 const MEDIA_LABEL: Record<NonNullable<Question['media']>['kind'], string> = {
-  tirinha: 'TIRINHA',
-  grafico: 'GRÁFICO',
-  tabela: 'TABELA',
-  imagem: 'IMAGEM',
+  tirinha: 'Tirinha',
+  grafico: 'Gráfico',
+  tabela: 'Tabela',
+  imagem: 'Imagem',
+}
+
+const MEDIA_ILLUSTRATION: Record<NonNullable<Question['media']>['kind'], () => ReactElement> = {
+  tirinha: ComicIllustration,
+  grafico: ChartIllustration,
+  tabela: TableIllustration,
+  imagem: PictureIllustration,
 }
 
 export function QuestionCard({
@@ -25,18 +34,23 @@ export function QuestionCard({
   revealed: boolean
   onSelect: (optionId: string) => void
 }) {
+  const MediaIllustration = question.media ? MEDIA_ILLUSTRATION[question.media.kind] : null
+
   return (
-    <div className="flex flex-col gap-5 rounded-xl2 bg-white p-6 shadow-soft">
+    <div key={question.id} className="animate-fade-in-up flex flex-col gap-5 rounded-xl2 bg-white p-6 shadow-soft">
       <div className="flex items-center gap-2">
         <Badge tone={SUBJECT_TONE[question.subject]}>{question.topic}</Badge>
       </div>
 
-      {question.media && (
-        <div className="flex flex-col items-center gap-2 rounded-xl2 border border-dashed border-ink/20 bg-surface p-8 text-center">
-          <span className="text-xs font-bold uppercase tracking-wide text-ink-soft">
-            [{MEDIA_LABEL[question.media.kind]}]
-          </span>
-          <span className="text-sm text-ink-soft">{question.media.caption}</span>
+      {question.media && MediaIllustration && (
+        <div className="flex flex-col gap-2 overflow-hidden rounded-xl2">
+          <div className="h-40 w-full">
+            <MediaIllustration />
+          </div>
+          <div className="flex items-center gap-2 px-1">
+            <Badge tone="neutral">{MEDIA_LABEL[question.media.kind]}</Badge>
+            <span className="text-sm text-ink-soft">{question.media.caption}</span>
+          </div>
         </div>
       )}
 

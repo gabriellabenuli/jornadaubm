@@ -1,6 +1,7 @@
 import type { DailyMission as DailyMissionData } from '../../data/types'
 import { MissionStage } from './MissionStage'
 import { ProgressBar } from '../shared/ProgressBar'
+import { Confetti } from '../shared/Confetti'
 
 export function DailyMission({ mission }: { mission: DailyMissionData }) {
   const completedCount = mission.stages.filter((s) => s.completed).length
@@ -16,7 +17,8 @@ export function DailyMission({ mission }: { mission: DailyMissionData }) {
       </div>
 
       {allDone ? (
-        <div className="flex flex-col items-center gap-2 rounded-xl2 bg-essay/30 py-8 text-center">
+        <div className="animate-pop-in relative flex flex-col items-center gap-2 overflow-hidden rounded-xl2 bg-essay/30 py-8 text-center">
+          <Confetti count={24} />
           <span className="text-lg font-extrabold text-essay-ink">MISSÃO CUMPRIDA</span>
           <p className="text-sm text-ink-soft">Todas as etapas de hoje foram concluídas.</p>
           <span className="mt-2 text-2xl font-extrabold text-essay-ink">+120 XP</span>

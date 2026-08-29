@@ -1,9 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom'
+import type { ReactElement } from 'react'
 import type { LessonContent } from '../../data/types'
 import type { StudentId } from '../../store/useAppStore'
 import { Badge } from '../shared/Badge'
 import { ProgressBar } from '../shared/ProgressBar'
 import { LessonSection } from './LessonSection'
+import { MathHero, PortHero, EssayHero } from '../illustrations/Illustrations'
 
 const SUBJECT_LABEL: Record<LessonContent['subject'], string> = {
   matematica: 'Matemática',
@@ -17,12 +19,23 @@ const SUBJECT_TONE: Record<LessonContent['subject'], 'math' | 'port' | 'essay'> 
   redacao: 'essay',
 }
 
+const SUBJECT_HERO: Record<LessonContent['subject'], () => ReactElement> = {
+  matematica: MathHero,
+  portugues: PortHero,
+  redacao: EssayHero,
+}
+
 export function LessonPage({ lesson }: { lesson: LessonContent }) {
   const navigate = useNavigate()
   const { studentId } = useParams<{ studentId: StudentId }>()
+  const Hero = SUBJECT_HERO[lesson.subject]
 
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-8">
+      <div className="animate-fade-in-up h-40 w-full overflow-hidden rounded-xl2 shadow-soft">
+        <Hero />
+      </div>
+
       <div>
         <Badge tone={SUBJECT_TONE[lesson.subject]}>{SUBJECT_LABEL[lesson.subject]}</Badge>
         <h1 className="mt-3 text-3xl font-extrabold tracking-tight">{lesson.title}</h1>

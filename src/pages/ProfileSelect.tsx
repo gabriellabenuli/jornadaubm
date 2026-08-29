@@ -8,6 +8,9 @@ import type { StudentId } from '../store/useAppStore'
 export default function ProfileSelect() {
   const navigate = useNavigate()
   const setActiveStudent = useAppStore((s) => s.setActiveStudent)
+  const setAvatarPhoto = useAppStore((s) => s.setAvatarPhoto)
+  const nicolasPhoto = useAppStore((s) => s.avatarPhoto.nicolas)
+  const joaoPhoto = useAppStore((s) => s.avatarPhoto.joao)
 
   function handleSelect(id: StudentId) {
     setActiveStudent(id)
@@ -24,8 +27,18 @@ export default function ProfileSelect() {
       </div>
 
       <div className="grid w-full max-w-4xl grid-cols-2 gap-8">
-        <ProfileCard data={nicolasData} onSelect={() => handleSelect('nicolas')} />
-        <ProfileCard data={joaoData} onSelect={() => handleSelect('joao')} />
+        <ProfileCard
+          data={nicolasData}
+          onSelect={() => handleSelect('nicolas')}
+          photoUrl={nicolasPhoto}
+          onPhotoChange={(url) => setAvatarPhoto('nicolas', url)}
+        />
+        <ProfileCard
+          data={joaoData}
+          onSelect={() => handleSelect('joao')}
+          photoUrl={joaoPhoto}
+          onPhotoChange={(url) => setAvatarPhoto('joao', url)}
+        />
       </div>
     </div>
   )

@@ -1,6 +1,8 @@
 import { CalendarClock } from 'lucide-react'
 import type { StudentProfile, XPState } from '../../data/types'
 import { XPBar } from '../dashboard/XPBar'
+import { AvatarUpload } from '../shared/AvatarUpload'
+import { useAppStore } from '../../store/useAppStore'
 
 function greeting() {
   const hour = new Date().getHours()
@@ -18,17 +20,28 @@ export function StudentHeader({
   xp: XPState
   daysRemaining: number
 }) {
+  const photoUrl = useAppStore((s) => s.avatarPhoto[profile.id])
+  const setAvatarPhoto = useAppStore((s) => s.setAvatarPhoto)
+
   return (
     <header className="flex items-start justify-between gap-6 pb-8">
-      <div>
-        <h1 className="text-3xl font-extrabold tracking-tight">
-          {greeting()}, {profile.name} 👋
-        </h1>
-        <p className="mt-1 text-ink-soft">Vamos avançar mais um pouco hoje?</p>
-        <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-ink-soft">
-          <CalendarClock size={16} />
-          Faltam {daysRemaining} dias para a prova
-        </p>
+      <div className="flex items-start gap-4">
+        <AvatarUpload
+          name={profile.name}
+          color={profile.avatarColor}
+          photoUrl={photoUrl}
+          onChange={(url) => setAvatarPhoto(profile.id, url)}
+        />
+        <div>
+          <h1 className="text-3xl font-extrabold tracking-tight">
+            {greeting()}, {profile.name} 👋
+          </h1>
+          <p className="mt-1 text-ink-soft">Vamos avançar mais um pouco hoje?</p>
+          <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-ink-soft">
+            <CalendarClock size={16} />
+            Faltam {daysRemaining} dias para a prova
+          </p>
+        </div>
       </div>
 
       <div className="flex flex-col items-end gap-2">
