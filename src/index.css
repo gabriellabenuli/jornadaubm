@@ -8,25 +8,25 @@
   --color-ink-soft: #726b62;
   --color-surface: #f7f6f3;
 
-  --color-math: #ded6ff;
-  --color-math-dark: #7c5cfc;
-  --color-math-ink: #5636c9;
+  --color-math: #d8ebff;
+  --color-math-dark: #3b93f0;
+  --color-math-ink: #1d5fa8;
 
-  --color-port: #ffdcb0;
-  --color-port-dark: #ff8f2e;
-  --color-port-ink: #b25a06;
+  --color-port: #eaf0c4;
+  --color-port-dark: #9ca02a;
+  --color-port-ink: #6b6e14;
 
-  --color-essay: #c9f7d6;
-  --color-essay-dark: #22c165;
-  --color-essay-ink: #128442;
+  --color-essay: #c9f3ea;
+  --color-essay-dark: #17b8a0;
+  --color-essay-ink: #0c7a6b;
 
-  --color-review: #fff2a6;
-  --color-review-dark: #ecc400;
-  --color-review-ink: #8a6d00;
+  --color-review: #ead9fb;
+  --color-review-dark: #9b5cf0;
+  --color-review-ink: #6b2fb3;
 
-  --color-sim: #ffd0e6;
-  --color-sim-dark: #ff3d94;
-  --color-sim-ink: #c41465;
+  --color-sim: #fbd6ea;
+  --color-sim-dark: #f0479c;
+  --color-sim-ink: #a81f68;
 
   --radius-xl2: 1.25rem;
   --shadow-soft: 0 1px 2px rgba(28, 26, 24, 0.04), 0 6px 16px rgba(28, 26, 24, 0.06);
