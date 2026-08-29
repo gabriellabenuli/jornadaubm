@@ -14,7 +14,10 @@ export function SubjectCard({ subject, studentId }: { subject: SubjectProgress; 
   const route = subject.key === 'redacao' ? `/${studentId}/redacao` : `/${studentId}/materia/${subject.key}`
 
   return (
-    <div className={`flex flex-col gap-3 rounded-xl2 p-5 shadow-soft ${BG_CLASS[subject.color]}`}>
+    <div
+      onClick={() => navigate(route)}
+      className={`card-interactive flex cursor-pointer flex-col gap-3 rounded-xl2 p-5 shadow-soft ${BG_CLASS[subject.color]}`}
+    >
       <span className="font-extrabold">{subject.label}</span>
       <ProgressBar percent={subject.percentComplete} tone={subject.color} height="sm" />
       <span className="text-sm text-ink-soft">{subject.percentComplete}% concluído</span>
@@ -29,7 +32,10 @@ export function SubjectCard({ subject, studentId }: { subject: SubjectProgress; 
       )}
 
       <button
-        onClick={() => navigate(route)}
+        onClick={(e) => {
+          e.stopPropagation()
+          navigate(route)
+        }}
         className="mt-2 self-start rounded-xl2 bg-white px-4 py-2 text-sm font-semibold shadow-soft transition-opacity hover:opacity-80"
       >
         {subject.key === 'redacao' ? 'Ver redações' : 'Continuar'}

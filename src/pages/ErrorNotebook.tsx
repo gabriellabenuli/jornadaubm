@@ -53,7 +53,10 @@ export default function ErrorNotebook() {
             <div key={status} className="flex flex-col gap-3">
               <h2 className="font-semibold">{title}</h2>
               {entries.map((entry) => (
-                <div key={entry.id} className="flex items-center justify-between rounded-xl2 bg-white p-4 shadow-soft">
+                <div
+                  key={entry.id}
+                  className="card-interactive flex items-center justify-between rounded-xl2 bg-white p-4 shadow-soft"
+                >
                   <div className="flex items-center gap-3">
                     <Badge tone={SUBJECT_TONE[entry.subject]}>{entry.topic}</Badge>
                     <span className="text-sm text-ink-soft">{entry.prompt}</span>

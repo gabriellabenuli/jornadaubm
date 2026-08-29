@@ -42,7 +42,7 @@ export default function SubjectHome() {
           <Link
             key={lesson.id}
             to={`/${studentId}/materia/${subjectSlug}/aula/${lesson.id}`}
-            className="flex items-center justify-between rounded-xl2 bg-white p-5 shadow-soft transition-shadow hover:shadow-md"
+            className="card-interactive flex items-center justify-between rounded-xl2 bg-white p-5 shadow-soft"
           >
             <span className="font-semibold">{lesson.title}</span>
             <span className="text-sm text-ink-soft">{lesson.progressPercent}%</span>

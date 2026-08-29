@@ -4,7 +4,7 @@ import type { Achievement } from '../../data/types'
 export function AchievementBadge({ achievement }: { achievement: Achievement }) {
   return (
     <div
-      className={`flex flex-col items-center gap-2 rounded-xl2 bg-white p-6 text-center shadow-soft ${
+      className={`card-interactive flex flex-col items-center gap-2 rounded-xl2 bg-white p-6 text-center shadow-soft ${
         achievement.unlocked ? '' : 'opacity-40 grayscale'
       }`}
     >

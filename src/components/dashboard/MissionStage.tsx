@@ -26,8 +26,9 @@ export function MissionStage({ stage, index }: { stage: MissionStageData; index:
 
   return (
     <div
-      className={`flex items-center justify-between gap-4 rounded-xl2 border p-4 transition-colors ${
-        stage.completed ? 'border-essay/60 bg-essay/20' : 'border-ink/5 bg-surface'
+      onClick={() => !stage.completed && navigate(stage.ctaRoute)}
+      className={`card-interactive flex items-center justify-between gap-4 rounded-xl2 border p-4 ${
+        stage.completed ? 'border-essay/60 bg-essay/20' : 'cursor-pointer border-ink/5 bg-surface'
       }`}
     >
       <div className="flex items-center gap-4">
@@ -62,7 +63,10 @@ export function MissionStage({ stage, index }: { stage: MissionStageData; index:
         <span className="shrink-0 text-sm font-semibold text-essay-ink">Concluído</span>
       ) : (
         <button
-          onClick={() => navigate(stage.ctaRoute)}
+          onClick={(e) => {
+            e.stopPropagation()
+            navigate(stage.ctaRoute)
+          }}
           className="shrink-0 rounded-xl2 bg-ink px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
         >
           {stage.ctaLabel}

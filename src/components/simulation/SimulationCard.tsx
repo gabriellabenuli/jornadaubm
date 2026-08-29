@@ -15,9 +15,10 @@ export function SimulationCard({
 
   return (
     <div
-      className={`flex flex-col gap-4 rounded-xl2 border p-6 shadow-soft ${
-        featured ? 'border-sim-dark/40 bg-sim/25' : 'border-ink/5 bg-white'
-      }`}
+      onClick={() => sim.completed && navigate(`/${studentId}/simulados/${sim.id}/resultado`)}
+      className={`card-interactive flex flex-col gap-4 rounded-xl2 border p-6 shadow-soft ${
+        sim.completed ? 'cursor-pointer' : ''
+      } ${featured ? 'border-sim-dark/40 bg-sim/25' : 'border-ink/5 bg-white'}`}
     >
       {featured && (
         <span className="text-xs font-bold uppercase tracking-wide text-sim-ink">Desafio da semana</span>
@@ -44,7 +45,10 @@ export function SimulationCard({
 
       {sim.completed ? (
         <button
-          onClick={() => navigate(`/${studentId}/simulados/${sim.id}/resultado`)}
+          onClick={(e) => {
+            e.stopPropagation()
+            navigate(`/${studentId}/simulados/${sim.id}/resultado`)
+          }}
           className="self-start rounded-xl2 bg-ink px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
         >
           Ver resultado

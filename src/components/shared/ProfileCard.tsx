@@ -8,7 +8,7 @@ export function ProfileCard({ data, onSelect }: { data: StudentData; onSelect: (
   return (
     <button
       onClick={onSelect}
-      className="flex flex-col items-start gap-5 rounded-xl2 bg-white p-8 text-left shadow-soft transition-shadow hover:shadow-md"
+      className="card-interactive flex flex-col items-start gap-5 rounded-xl2 bg-white p-8 text-left shadow-soft"
     >
       <div
         className="flex h-16 w-16 items-center justify-center rounded-full text-2xl font-bold text-white"
