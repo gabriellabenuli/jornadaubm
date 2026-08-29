@@ -224,37 +224,132 @@ export function EssayHero() {
   )
 }
 
-export function ComicIllustration() {
+/** Original round "blob bird" character — thick outline, two-tone body split
+ * down the middle, a small triangular head-tuft, a dot eye, a thin curvy arm
+ * that curls into a spiral, and simple stick legs. Not based on any existing
+ * comic character. */
+function BlobBird({
+  x,
+  y,
+  scale = 1,
+  flip = false,
+  bodyColor,
+  accentColor,
+  armUp = false,
+  holdingPhone = false,
+}: {
+  x: number
+  y: number
+  scale?: number
+  flip?: boolean
+  bodyColor: string
+  accentColor: string
+  armUp?: boolean
+  holdingPhone?: boolean
+}) {
   return (
-    <Panel color="var(--color-sim)">
-      <line x1="110" y1="14" x2="110" y2="146" stroke={INK} strokeWidth="2" strokeDasharray="4 6" opacity="0.4" />
-      <Sparkle x={20} y={24} r={4} color="white" />
-      <Sparkle x={200} y={130} r={4} color="white" />
+    <g
+      transform={`translate(${x},${y}) scale(${(flip ? -1 : 1) * scale},${scale})`}
+      stroke={INK}
+      strokeWidth="3"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+    >
+      <line x1="-9" y1="32" x2="-11" y2="46" />
+      <line x1="9" y1="32" x2="11" y2="46" />
+      <ellipse cx="-12" cy="47" rx="5" ry="2.5" fill={INK} stroke="none" />
+      <ellipse cx="12" cy="47" rx="5" ry="2.5" fill={INK} stroke="none" />
 
-      <path
-        d="M56 30 q24 -8 32 10 q5 12 -9 17 l3 11 l-15 -7 q-17 3 -19 -13 q-2 -13 8 -18 Z"
-        fill="white"
-        stroke={INK}
-        strokeWidth="2.4"
-        strokeLinejoin="round"
-      />
-      <text x="70" y="50" textAnchor="middle" fontSize="12" fontWeight="800" fill={INK}>
-        Ha!
-      </text>
-      <Person x={52} y={140} scale={0.85} shirt="white" shirtDark="#e9e6de" pants="var(--color-sim-dark)" hair="#2b2320" hairStyle="short" />
+      <path d="M-30 8 Q-33 -28 0 -30 Q33 -28 30 8 Q28 34 0 34 Q-28 34 -30 8 Z" fill={accentColor} />
+      <path d="M-30 8 Q-33 -28 0 -30 L0 34 Q-28 34 -30 8 Z" fill={bodyColor} />
 
-      <path
-        d="M168 24 q-6 14 8 19 l-2 10 l13 -7 q16 1 17 -15 q1 -13 -15 -16 q-14 -2 -21 9 Z"
-        fill="white"
-        stroke={INK}
-        strokeWidth="2.4"
-        strokeLinejoin="round"
-      />
-      <text x="182" y="42" textAnchor="middle" fontSize="12" fontWeight="800" fill={INK}>
-        ?!
-      </text>
-      <Person x={165} y={140} scale={0.85} flip shirt="var(--color-sim-dark)" shirtDark="var(--color-sim-ink)" pants="#6b0f3d" hair="#3a2415" hairStyle="bun" />
-    </Panel>
+      <path d="M-7 -30 L-1 -42 L6 -28 Z" fill={bodyColor} />
+
+      <circle cx="7" cy="-4" r="2.6" fill={INK} stroke="none" />
+
+      {armUp ? (
+        <path d="M26 2 Q42 -2 40 -16 Q39 -24 47 -23" fill="none" />
+      ) : (
+        <path d="M26 10 Q40 14 38 26" fill="none" />
+      )}
+
+      {holdingPhone && (
+        <g transform="translate(24,16) rotate(8)">
+          <rect x="0" y="0" width="13" height="20" rx="2.5" fill="white" />
+          <line x1="3" y1="4" x2="10" y2="4" strokeWidth="1.5" />
+        </g>
+      )}
+    </g>
+  )
+}
+
+function SpeechBubble({ x, y, w, h }: { x: number; y: number; w: number; h: number }) {
+  return (
+    <path
+      d={`M${x} ${y} h${w} v${h} h-${w * 0.55} l-6 8 l2 -8 h-${w * 0.45 - 6} Z`}
+      fill="white"
+      stroke={INK}
+      strokeWidth="2"
+      strokeLinejoin="round"
+    />
+  )
+}
+
+export function ComicIllustration() {
+  const bird1 = { bodyColor: '#ffd23f', accentColor: 'var(--color-sim-dark)' }
+  const bird2 = { bodyColor: 'var(--color-math)', accentColor: 'var(--color-math-dark)' }
+  const panelW = 110
+
+  return (
+    <svg viewBox="0 0 440 120" preserveAspectRatio="xMidYMid slice" className="h-full w-full">
+      <rect width="440" height="120" fill="white" />
+      {[1, 2, 3].map((i) => (
+        <line key={i} x1={i * panelW} y1="3" x2={i * panelW} y2="117" stroke={INK} strokeWidth="3" />
+      ))}
+      <rect x="2" y="2" width="436" height="116" rx="4" fill="none" stroke={INK} strokeWidth="4" />
+
+      {/* panel 1 */}
+      <g>
+        <SpeechBubble x={12} y={8} w={82} h={26} />
+        <text x="53" y="21" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          E AGORA? COMO
+        </text>
+        <text x="53" y="30" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          RESOLVO ISSO?
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} bodyColor={bird1.bodyColor} accentColor={bird1.accentColor} armUp />
+      </g>
+
+      {/* panel 2 */}
+      <g transform={`translate(${panelW},0)`}>
+        <SpeechBubble x={14} y={8} w={84} h={26} />
+        <text x="56" y="21" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          PASSO A PASSO,
+        </text>
+        <text x="56" y="30" textAnchor="middle" fontSize="7.5" fontWeight="800" fill={INK}>
+          SEM PRESSA!
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} flip bodyColor={bird2.bodyColor} accentColor={bird2.accentColor} />
+      </g>
+
+      {/* panel 3 */}
+      <g transform={`translate(${panelW * 2},0)`}>
+        <SpeechBubble x={20} y={8} w={70} h={24} />
+        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
+          CONSEGUI!
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} bodyColor={bird1.bodyColor} accentColor={bird1.accentColor} armUp />
+      </g>
+
+      {/* panel 4 */}
+      <g transform={`translate(${panelW * 3},0)`}>
+        <SpeechBubble x={14} y={8} w={82} h={24} />
+        <text x="55" y="24" textAnchor="middle" fontSize="8" fontWeight="800" fill={INK}>
+          ERA SÓ ISSO?
+        </text>
+        <BlobBird x={55} y={84} scale={0.72} flip bodyColor={bird2.bodyColor} accentColor={bird2.accentColor} holdingPhone />
+      </g>
+    </svg>
   )
 }
 
