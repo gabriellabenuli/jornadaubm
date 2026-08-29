@@ -4,9 +4,11 @@ const WEEKDAY_LETTERS = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']
 
 export function StudyStreak({ streak }: { streak: StreakState }) {
   const message =
-    streak.currentDays < streak.bestDays
-      ? 'Mais um dia e você bate seu recorde.'
-      : 'Novo recorde! Continue assim.'
+    streak.currentDays === 0
+      ? 'Complete a missão de hoje para começar sua sequência.'
+      : streak.currentDays < streak.bestDays
+        ? 'Mais um dia e você bate seu recorde.'
+        : 'Novo recorde! Continue assim.'
 
   return (
     <div className="flex flex-col gap-3 rounded-xl2 bg-white p-5 shadow-soft">

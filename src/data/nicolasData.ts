@@ -10,15 +10,15 @@ export const nicolasData: StudentData = {
     examDate: '2026-09-26',
   },
 
-  xp: { total: 1240, level: 7, xpForNextLevel: 260, xpSpanForLevel: 500 },
+  xp: { total: 0, level: 1, xpForNextLevel: 500, xpSpanForLevel: 500 },
 
   streak: {
-    currentDays: 7,
-    bestDays: 7,
-    last7Days: ['done', 'done', 'done', 'done', 'done', 'done', 'done'],
+    currentDays: 0,
+    bestDays: 0,
+    last7Days: ['missed', 'missed', 'missed', 'missed', 'missed', 'missed', 'missed'],
   },
 
-  exam: { date: '2026-09-26', daysRemaining: 29, weeksTotal: 5, currentWeek: 3 },
+  exam: { date: '2026-09-26', daysRemaining: 28, weeksTotal: 5, currentWeek: 1 },
 
   dailyMission: {
     totalMinutes: 90,
@@ -61,9 +61,9 @@ export const nicolasData: StudentData = {
   currentFocus: {
     topic: 'Predicação verbal',
     subject: 'portugues',
-    reason: 'Você errou 3 questões recentes sobre esse assunto. Vamos reforçar antes de avançar.',
-    metricLabel: '3 erros recentes',
-    ctaLabel: 'Revisar por 10 min',
+    reason: 'Você ainda não praticou esse assunto. Que tal começar por aqui?',
+    metricLabel: 'Novo assunto',
+    ctaLabel: 'Começar',
     ctaRoute: '/nicolas/materia/portugues',
   },
 
@@ -71,53 +71,40 @@ export const nicolasData: StudentData = {
     matematica: {
       key: 'matematica',
       label: 'Matemática',
-      percentComplete: 72,
-      questionsAnswered: 340,
-      accuracyRate: 78,
+      percentComplete: 0,
+      questionsAnswered: 0,
+      accuracyRate: 0,
       color: 'math',
     },
     portugues: {
       key: 'portugues',
       label: 'Português',
-      percentComplete: 58,
-      questionsAnswered: 210,
-      accuracyRate: 69,
+      percentComplete: 0,
+      questionsAnswered: 0,
+      accuracyRate: 0,
       color: 'port',
     },
     redacao: {
       key: 'redacao',
       label: 'Redação',
-      percentComplete: 65,
+      percentComplete: 0,
       questionsAnswered: 0,
       accuracyRate: 0,
-      averageGrade: 8.0,
       color: 'essay',
     },
   },
 
   performanceOverview: {
-    daysStudied: 18,
-    hoursStudied: 12.67,
-    questionsAnswered: 438,
-    accuracyRate: 78,
-    mathAccuracy: 78,
-    portAccuracy: 69,
-    essaysCount: 3,
-    simulationEvolution: [
-      { label: 'Simulado 01', percent: 62 },
-      { label: 'Simulado 02', percent: 69 },
-      { label: 'Simulado 03', percent: 80 },
-    ],
-    strengths: [
-      { topic: 'Porcentagem', percent: 88 },
-      { topic: 'Números inteiros', percent: 85 },
-      { topic: 'Equações do 1º grau', percent: 82 },
-    ],
-    weaknesses: [
-      { topic: 'Predicação verbal', percent: 58 },
-      { topic: 'Interpretação de texto', percent: 63 },
-      { topic: 'Concordância verbal', percent: 66 },
-    ],
+    daysStudied: 0,
+    hoursStudied: 0,
+    questionsAnswered: 0,
+    accuracyRate: 0,
+    mathAccuracy: 0,
+    portAccuracy: 0,
+    essaysCount: 0,
+    simulationEvolution: [],
+    strengths: [],
+    weaknesses: [],
   },
 
   journey: [
@@ -129,45 +116,45 @@ export const nicolasData: StudentData = {
         {
           date: '31 AGO',
           weekday: 'SEG',
-          status: 'done',
+          status: 'today',
           activities: [
-            { subject: 'matematica', label: 'Números inteiros', done: true },
-            { subject: 'portugues', label: 'Interpretação de texto', done: true },
-            { subject: 'redacao', label: 'Estrutura da crônica', done: true },
+            { subject: 'matematica', label: 'Números inteiros', done: false },
+            { subject: 'portugues', label: 'Interpretação de texto', done: false },
+            { subject: 'redacao', label: 'Estrutura da crônica', done: false },
           ],
         },
         {
           date: '01 SET',
           weekday: 'TER',
-          status: 'done',
+          status: 'next',
           activities: [
-            { subject: 'matematica', label: 'Múltiplos e divisores', done: true },
-            { subject: 'portugues', label: 'Classes gramaticais', done: true },
+            { subject: 'matematica', label: 'Múltiplos e divisores', done: false },
+            { subject: 'portugues', label: 'Classes gramaticais', done: false },
           ],
         },
         {
           date: '02 SET',
           weekday: 'QUA',
-          status: 'done',
+          status: 'future',
           activities: [
-            { subject: 'matematica', label: 'Frações equivalentes', done: true },
-            { subject: 'portugues', label: 'Acentuação', done: true },
+            { subject: 'matematica', label: 'Frações equivalentes', done: false },
+            { subject: 'portugues', label: 'Acentuação', done: false },
           ],
         },
         {
           date: '03 SET',
           weekday: 'QUI',
-          status: 'done',
+          status: 'future',
           activities: [
-            { subject: 'matematica', label: 'Operações com frações', done: true },
-            { subject: 'redacao', label: 'Leitura de crônicas', done: true },
+            { subject: 'matematica', label: 'Operações com frações', done: false },
+            { subject: 'redacao', label: 'Leitura de crônicas', done: false },
           ],
         },
         {
           date: '04 SET',
           weekday: 'SEX',
-          status: 'done',
-          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: true }],
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: false }],
         },
       ],
     },
@@ -179,41 +166,41 @@ export const nicolasData: StudentData = {
         {
           date: '07 SET',
           weekday: 'SEG',
-          status: 'done',
+          status: 'future',
           activities: [
-            { subject: 'matematica', label: 'Razão e proporção', done: true },
-            { subject: 'portugues', label: 'Sujeito e predicado', done: true },
+            { subject: 'matematica', label: 'Razão e proporção', done: false },
+            { subject: 'portugues', label: 'Sujeito e predicado', done: false },
           ],
         },
         {
           date: '08 SET',
           weekday: 'TER',
-          status: 'done',
+          status: 'future',
           activities: [
-            { subject: 'matematica', label: 'Porcentagem', done: true },
-            { subject: 'portugues', label: 'Predicação verbal', done: true },
+            { subject: 'matematica', label: 'Porcentagem', done: false },
+            { subject: 'portugues', label: 'Predicação verbal', done: false },
           ],
         },
         {
           date: '09 SET',
           weekday: 'QUA',
-          status: 'done',
+          status: 'future',
           activities: [
-            { subject: 'matematica', label: 'Porcentagem — prática', done: true },
-            { subject: 'redacao', label: 'Planejamento de crônica', done: true },
+            { subject: 'matematica', label: 'Porcentagem — prática', done: false },
+            { subject: 'redacao', label: 'Planejamento de crônica', done: false },
           ],
         },
         {
           date: '10 SET',
           weekday: 'QUI',
-          status: 'done',
-          activities: [{ subject: 'portugues', label: 'Concordância verbal', done: true }],
+          status: 'future',
+          activities: [{ subject: 'portugues', label: 'Concordância verbal', done: false }],
         },
         {
           date: '11 SET',
           weekday: 'SEX',
-          status: 'done',
-          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: true }],
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: false }],
         },
       ],
     },
@@ -225,16 +212,16 @@ export const nicolasData: StudentData = {
         {
           date: '14 SET',
           weekday: 'SEG',
-          status: 'done',
+          status: 'future',
           activities: [
-            { subject: 'matematica', label: 'Equações do 1º grau', done: true },
-            { subject: 'portugues', label: 'Predicação verbal — prática', done: true },
+            { subject: 'matematica', label: 'Equações do 1º grau', done: false },
+            { subject: 'portugues', label: 'Predicação verbal — prática', done: false },
           ],
         },
         {
           date: '15 SET',
           weekday: 'TER',
-          status: 'today',
+          status: 'future',
           activities: [
             { subject: 'matematica', label: 'Equações do 1º grau', done: false },
             { subject: 'portugues', label: 'Interpretação de texto', done: false },
@@ -244,7 +231,7 @@ export const nicolasData: StudentData = {
         {
           date: '16 SET',
           weekday: 'QUA',
-          status: 'next',
+          status: 'future',
           activities: [
             { subject: 'matematica', label: 'Sistemas de equações', done: false },
             { subject: 'portugues', label: 'Coesão textual', done: false },
@@ -327,7 +314,7 @@ export const nicolasData: StudentData = {
       id: 'equacoes-1grau',
       subject: 'matematica',
       title: 'Equações do 1º grau',
-      progressPercent: 40,
+      progressPercent: 0,
       exerciseSetId: 'pratica-equacoes',
       sections: [
         {
@@ -379,7 +366,7 @@ export const nicolasData: StudentData = {
       id: 'porcentagem',
       subject: 'matematica',
       title: 'Porcentagem',
-      progressPercent: 60,
+      progressPercent: 0,
       exerciseSetId: 'pratica-porcentagem',
       sections: [
         {
@@ -431,7 +418,7 @@ export const nicolasData: StudentData = {
       id: 'razao-proporcao',
       subject: 'matematica',
       title: 'Razão e proporção',
-      progressPercent: 55,
+      progressPercent: 0,
       exerciseSetId: 'pratica-razao-proporcao',
       sections: [
         {
@@ -483,7 +470,7 @@ export const nicolasData: StudentData = {
       id: 'predicacao-verbal',
       subject: 'portugues',
       title: 'Predicação verbal',
-      progressPercent: 40,
+      progressPercent: 0,
       exerciseSetId: 'pratica-predicacao-verbal',
       sections: [
         {
@@ -940,47 +927,9 @@ export const nicolasData: StudentData = {
   },
 
   errorNotebook: {
-    bySubjectCount: { matematica: 12, portugues: 8, redacao: 4 },
-    topicBreakdown: [
-      { topic: 'Predicação verbal', subject: 'portugues', count: 8 },
-      { topic: 'Interpretação de texto', subject: 'portugues', count: 5 },
-      { topic: 'Sistemas de equações', subject: 'matematica', count: 4 },
-      { topic: 'Geometria', subject: 'matematica', count: 3 },
-    ],
-    entries: [
-      {
-        id: 'err-1',
-        subject: 'portugues',
-        topic: 'Predicação verbal',
-        prompt: 'Em "O jogo parecia difícil", o verbo "parecia" é classificado como...',
-        status: 'recent',
-        missedOn: '2026-08-26',
-      },
-      {
-        id: 'err-2',
-        subject: 'matematica',
-        topic: 'Sistemas de equações',
-        prompt: 'Resolva o sistema: x + y = 10 e x − y = 2.',
-        status: 'review',
-        missedOn: '2026-08-20',
-      },
-      {
-        id: 'err-3',
-        subject: 'portugues',
-        topic: 'Interpretação de texto',
-        prompt: 'Qual a ideia central do segundo parágrafo do texto?',
-        status: 'mastered',
-        missedOn: '2026-08-10',
-      },
-      {
-        id: 'err-4',
-        subject: 'matematica',
-        topic: 'Geometria',
-        prompt: 'Calcule o ângulo interno de um triângulo equilátero.',
-        status: 'review',
-        missedOn: '2026-08-22',
-      },
-    ],
+    bySubjectCount: { matematica: 0, portugues: 0, redacao: 0 },
+    topicBreakdown: [],
+    entries: [],
   },
 
   essays: {
@@ -1002,11 +951,7 @@ export const nicolasData: StudentData = {
       { id: 'c4', label: 'Revisei pontuação' },
       { id: 'c5', label: 'Conferi o número de linhas' },
     ],
-    history: [
-      { id: 'e1', label: 'Redação #01', grade: 7.5, date: '2026-08-05' },
-      { id: 'e2', label: 'Redação #02', grade: 8.0, date: '2026-08-14' },
-      { id: 'e3', label: 'Redação #03', grade: 8.7, date: '2026-08-23' },
-    ],
+    history: [],
   },
 
   simulations: [
@@ -1019,17 +964,7 @@ export const nicolasData: StudentData = {
       portQuestions: 6,
       hasEssay: false,
       suggestedMinutes: 40,
-      completed: true,
-      result: {
-        correct: 9,
-        total: 15,
-        bySubject: [
-          { subject: 'matematica', correct: 6, total: 9 },
-          { subject: 'portugues', correct: 3, total: 6 },
-        ],
-        strengths: [{ topic: 'Números inteiros', percent: 85 }],
-        weaknesses: [{ topic: 'Interpretação de texto', percent: 55 }],
-      },
+      completed: false,
     },
     {
       id: 'sim-02',
@@ -1040,17 +975,7 @@ export const nicolasData: StudentData = {
       portQuestions: 10,
       hasEssay: false,
       suggestedMinutes: 60,
-      completed: true,
-      result: {
-        correct: 17,
-        total: 25,
-        bySubject: [
-          { subject: 'matematica', correct: 11, total: 15 },
-          { subject: 'portugues', correct: 6, total: 10 },
-        ],
-        strengths: [{ topic: 'Porcentagem', percent: 88 }],
-        weaknesses: [{ topic: 'Predicação verbal', percent: 60 }],
-      },
+      completed: false,
     },
     {
       id: 'sim-03',
@@ -1061,24 +986,7 @@ export const nicolasData: StudentData = {
       portQuestions: 15,
       hasEssay: true,
       suggestedMinutes: 90,
-      completed: true,
-      result: {
-        correct: 28,
-        total: 35,
-        bySubject: [
-          { subject: 'matematica', correct: 16, total: 20 },
-          { subject: 'portugues', correct: 12, total: 15 },
-        ],
-        essayGrade: 8.0,
-        strengths: [
-          { topic: 'Interpretação de texto', percent: 90 },
-          { topic: 'Porcentagem', percent: 88 },
-        ],
-        weaknesses: [
-          { topic: 'Frações', percent: 58 },
-          { topic: 'Equações', percent: 63 },
-        ],
-      },
+      completed: false,
     },
     {
       id: 'sim-04',
@@ -1090,16 +998,15 @@ export const nicolasData: StudentData = {
       hasEssay: true,
       suggestedMinutes: 90,
       completed: false,
-      daysUntil: 12,
     },
   ],
 
   achievements: [
-    { id: 'ach-1', icon: '🔥', title: 'Embalado', description: '7 dias estudando', unlocked: true },
-    { id: 'ach-2', icon: '🎯', title: 'Na mosca', description: '10 questões corretas seguidas', unlocked: true },
-    { id: 'ach-3', icon: '📚', title: 'Leitor atento', description: '50 questões de interpretação', unlocked: true },
-    { id: 'ach-4', icon: '🧠', title: 'Mestre dos números', description: '100 questões de Matemática', unlocked: true },
+    { id: 'ach-1', icon: '🔥', title: 'Embalado', description: '7 dias estudando', unlocked: false },
+    { id: 'ach-2', icon: '🎯', title: 'Na mosca', description: '10 questões corretas seguidas', unlocked: false },
+    { id: 'ach-3', icon: '📚', title: 'Leitor atento', description: '50 questões de interpretação', unlocked: false },
+    { id: 'ach-4', icon: '🧠', title: 'Mestre dos números', description: '100 questões de Matemática', unlocked: false },
     { id: 'ach-5', icon: '✍️', title: 'Escritor', description: '5 redações concluídas', unlocked: false },
-    { id: 'ach-6', icon: '🏆', title: 'Semana perfeita', description: 'Concluiu todas as atividades da semana', unlocked: true },
+    { id: 'ach-6', icon: '🏆', title: 'Semana perfeita', description: 'Concluiu todas as atividades da semana', unlocked: false },
   ],
 }

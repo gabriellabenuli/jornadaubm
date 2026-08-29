@@ -10,15 +10,15 @@ export const joaoData: StudentData = {
     examDate: '2026-09-26',
   },
 
-  xp: { total: 860, level: 5, xpForNextLevel: 140, xpSpanForLevel: 400 },
+  xp: { total: 0, level: 1, xpForNextLevel: 400, xpSpanForLevel: 400 },
 
   streak: {
-    currentDays: 4,
-    bestDays: 6,
-    last7Days: ['missed', 'done', 'done', 'done', 'done', 'missed', 'missed'],
+    currentDays: 0,
+    bestDays: 0,
+    last7Days: ['missed', 'missed', 'missed', 'missed', 'missed', 'missed', 'missed'],
   },
 
-  exam: { date: '2026-09-26', daysRemaining: 29, weeksTotal: 5, currentWeek: 3 },
+  exam: { date: '2026-09-26', daysRemaining: 28, weeksTotal: 5, currentWeek: 1 },
 
   dailyMission: {
     totalMinutes: 90,
@@ -61,9 +61,9 @@ export const joaoData: StudentData = {
   currentFocus: {
     topic: 'Frações',
     subject: 'matematica',
-    reason: 'Você acertou 58% das últimas questões desse assunto. Vamos reforçar antes de avançar.',
-    metricLabel: '58% de acerto',
-    ctaLabel: 'Revisar por 10 min',
+    reason: 'Você ainda não praticou esse assunto. Que tal começar por aqui?',
+    metricLabel: 'Novo assunto',
+    ctaLabel: 'Começar',
     ctaRoute: '/joao/materia/matematica',
   },
 
@@ -71,53 +71,40 @@ export const joaoData: StudentData = {
     matematica: {
       key: 'matematica',
       label: 'Matemática',
-      percentComplete: 54,
-      questionsAnswered: 260,
-      accuracyRate: 64,
+      percentComplete: 0,
+      questionsAnswered: 0,
+      accuracyRate: 0,
       color: 'math',
     },
     portugues: {
       key: 'portugues',
       label: 'Português',
-      percentComplete: 68,
-      questionsAnswered: 230,
-      accuracyRate: 81,
+      percentComplete: 0,
+      questionsAnswered: 0,
+      accuracyRate: 0,
       color: 'port',
     },
     redacao: {
       key: 'redacao',
       label: 'Redação',
-      percentComplete: 50,
+      percentComplete: 0,
       questionsAnswered: 0,
       accuracyRate: 0,
-      averageGrade: 7.3,
       color: 'essay',
     },
   },
 
   performanceOverview: {
-    daysStudied: 14,
-    hoursStudied: 9.5,
-    questionsAnswered: 312,
-    accuracyRate: 72,
-    mathAccuracy: 64,
-    portAccuracy: 81,
-    essaysCount: 3,
-    simulationEvolution: [
-      { label: 'Simulado 01', percent: 55 },
-      { label: 'Simulado 02', percent: 61 },
-      { label: 'Simulado 03', percent: 70 },
-    ],
-    strengths: [
-      { topic: 'Interpretação de tirinhas', percent: 90 },
-      { topic: 'Classes gramaticais', percent: 84 },
-      { topic: 'Ortografia', percent: 80 },
-    ],
-    weaknesses: [
-      { topic: 'Frações', percent: 58 },
-      { topic: 'Números decimais', percent: 62 },
-      { topic: 'Situações-problema', percent: 65 },
-    ],
+    daysStudied: 0,
+    hoursStudied: 0,
+    questionsAnswered: 0,
+    accuracyRate: 0,
+    mathAccuracy: 0,
+    portAccuracy: 0,
+    essaysCount: 0,
+    simulationEvolution: [],
+    strengths: [],
+    weaknesses: [],
   },
 
   journey: [
@@ -129,38 +116,38 @@ export const joaoData: StudentData = {
         {
           date: '31 AGO',
           weekday: 'SEG',
-          status: 'done',
+          status: 'today',
           activities: [
-            { subject: 'matematica', label: 'Números naturais', done: true },
-            { subject: 'portugues', label: 'Leitura de tirinhas', done: true },
+            { subject: 'matematica', label: 'Números naturais', done: false },
+            { subject: 'portugues', label: 'Leitura de tirinhas', done: false },
           ],
         },
         {
           date: '01 SET',
           weekday: 'TER',
-          status: 'done',
+          status: 'next',
           activities: [
-            { subject: 'matematica', label: 'Introdução às frações', done: true },
-            { subject: 'portugues', label: 'Substantivos e adjetivos', done: true },
+            { subject: 'matematica', label: 'Introdução às frações', done: false },
+            { subject: 'portugues', label: 'Substantivos e adjetivos', done: false },
           ],
         },
         {
           date: '02 SET',
           weekday: 'QUA',
-          status: 'done',
-          activities: [{ subject: 'matematica', label: 'Frações equivalentes', done: true }],
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Frações equivalentes', done: false }],
         },
         {
           date: '03 SET',
           weekday: 'QUI',
-          status: 'done',
-          activities: [{ subject: 'redacao', label: 'O que é um mito?', done: true }],
+          status: 'future',
+          activities: [{ subject: 'redacao', label: 'O que é um mito?', done: false }],
         },
         {
           date: '04 SET',
           weekday: 'SEX',
-          status: 'done',
-          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: true }],
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: false }],
         },
       ],
     },
@@ -172,35 +159,35 @@ export const joaoData: StudentData = {
         {
           date: '07 SET',
           weekday: 'SEG',
-          status: 'done',
+          status: 'future',
           activities: [
-            { subject: 'matematica', label: 'Comparando frações', done: true },
-            { subject: 'portugues', label: 'Interpretação de tirinhas', done: true },
+            { subject: 'matematica', label: 'Comparando frações', done: false },
+            { subject: 'portugues', label: 'Interpretação de tirinhas', done: false },
           ],
         },
         {
           date: '08 SET',
           weekday: 'TER',
-          status: 'done',
-          activities: [{ subject: 'matematica', label: 'Números decimais', done: true }],
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Números decimais', done: false }],
         },
         {
           date: '09 SET',
           weekday: 'QUA',
-          status: 'done',
-          activities: [{ subject: 'portugues', label: 'Pontuação', done: true }],
+          status: 'future',
+          activities: [{ subject: 'portugues', label: 'Pontuação', done: false }],
         },
         {
           date: '10 SET',
           weekday: 'QUI',
-          status: 'done',
-          activities: [{ subject: 'redacao', label: 'Mitos — planejamento', done: true }],
+          status: 'future',
+          activities: [{ subject: 'redacao', label: 'Mitos — planejamento', done: false }],
         },
         {
           date: '11 SET',
           weekday: 'SEX',
-          status: 'done',
-          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: true }],
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: false }],
         },
       ],
     },
@@ -212,13 +199,13 @@ export const joaoData: StudentData = {
         {
           date: '14 SET',
           weekday: 'SEG',
-          status: 'done',
-          activities: [{ subject: 'matematica', label: 'Frações — comparando frações', done: true }],
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Frações — comparando frações', done: false }],
         },
         {
           date: '15 SET',
           weekday: 'TER',
-          status: 'today',
+          status: 'future',
           activities: [
             { subject: 'matematica', label: 'Frações — comparando frações', done: false },
             { subject: 'portugues', label: 'Interpretação de tirinhas', done: false },
@@ -228,7 +215,7 @@ export const joaoData: StudentData = {
         {
           date: '16 SET',
           weekday: 'QUA',
-          status: 'next',
+          status: 'future',
           activities: [{ subject: 'matematica', label: 'Operações com frações', done: false }],
         },
         {
@@ -308,7 +295,7 @@ export const joaoData: StudentData = {
       id: 'fracoes',
       subject: 'matematica',
       title: 'Frações — comparando frações',
-      progressPercent: 35,
+      progressPercent: 0,
       exerciseSetId: 'pratica-fracoes',
       sections: [
         {
@@ -360,7 +347,7 @@ export const joaoData: StudentData = {
       id: 'numeros-decimais',
       subject: 'matematica',
       title: 'Números decimais',
-      progressPercent: 45,
+      progressPercent: 0,
       exerciseSetId: 'pratica-decimais',
       sections: [
         {
@@ -412,7 +399,7 @@ export const joaoData: StudentData = {
       id: 'operacoes-fracoes',
       subject: 'matematica',
       title: 'Operações com frações',
-      progressPercent: 30,
+      progressPercent: 0,
       exerciseSetId: 'pratica-operacoes-fracoes',
       sections: [
         {
@@ -464,7 +451,7 @@ export const joaoData: StudentData = {
       id: 'interpretacao-tirinhas',
       subject: 'portugues',
       title: 'Interpretação de tirinhas',
-      progressPercent: 50,
+      progressPercent: 0,
       exerciseSetId: 'pratica-interpretacao-tirinhas',
       sections: [
         {
@@ -917,47 +904,9 @@ export const joaoData: StudentData = {
   },
 
   errorNotebook: {
-    bySubjectCount: { matematica: 15, portugues: 5, redacao: 3 },
-    topicBreakdown: [
-      { topic: 'Frações', subject: 'matematica', count: 9 },
-      { topic: 'Números decimais', subject: 'matematica', count: 6 },
-      { topic: 'Interpretação de tirinhas', subject: 'portugues', count: 3 },
-      { topic: 'Ortografia', subject: 'portugues', count: 2 },
-    ],
-    entries: [
-      {
-        id: 'err-1',
-        subject: 'matematica',
-        topic: 'Frações',
-        prompt: 'Compare as frações 5/6 e 7/9 e diga qual é maior.',
-        status: 'recent',
-        missedOn: '2026-08-27',
-      },
-      {
-        id: 'err-2',
-        subject: 'matematica',
-        topic: 'Números decimais',
-        prompt: 'Escreva 3/4 na forma decimal.',
-        status: 'review',
-        missedOn: '2026-08-21',
-      },
-      {
-        id: 'err-3',
-        subject: 'portugues',
-        topic: 'Interpretação de tirinhas',
-        prompt: 'O que o gesto do personagem na última cena sugere?',
-        status: 'mastered',
-        missedOn: '2026-08-09',
-      },
-      {
-        id: 'err-4',
-        subject: 'matematica',
-        topic: 'Frações',
-        prompt: 'Simplifique a fração 12/18.',
-        status: 'review',
-        missedOn: '2026-08-24',
-      },
-    ],
+    bySubjectCount: { matematica: 0, portugues: 0, redacao: 0 },
+    topicBreakdown: [],
+    entries: [],
   },
 
   essays: {
@@ -979,11 +928,7 @@ export const joaoData: StudentData = {
       { id: 'c4', label: 'Revisei pontuação' },
       { id: 'c5', label: 'Conferi o número de linhas' },
     ],
-    history: [
-      { id: 'e1', label: 'Redação #01', grade: 6.5, date: '2026-08-06' },
-      { id: 'e2', label: 'Redação #02', grade: 7.2, date: '2026-08-15' },
-      { id: 'e3', label: 'Redação #03', grade: 7.3, date: '2026-08-24' },
-    ],
+    history: [],
   },
 
   simulations: [
@@ -996,17 +941,7 @@ export const joaoData: StudentData = {
       portQuestions: 6,
       hasEssay: false,
       suggestedMinutes: 40,
-      completed: true,
-      result: {
-        correct: 8,
-        total: 15,
-        bySubject: [
-          { subject: 'matematica', correct: 4, total: 9 },
-          { subject: 'portugues', correct: 4, total: 6 },
-        ],
-        strengths: [{ topic: 'Interpretação de tirinhas', percent: 88 }],
-        weaknesses: [{ topic: 'Frações', percent: 44 }],
-      },
+      completed: false,
     },
     {
       id: 'sim-02',
@@ -1017,17 +952,7 @@ export const joaoData: StudentData = {
       portQuestions: 10,
       hasEssay: false,
       suggestedMinutes: 60,
-      completed: true,
-      result: {
-        correct: 15,
-        total: 25,
-        bySubject: [
-          { subject: 'matematica', correct: 8, total: 15 },
-          { subject: 'portugues', correct: 7, total: 10 },
-        ],
-        strengths: [{ topic: 'Classes gramaticais', percent: 84 }],
-        weaknesses: [{ topic: 'Números decimais', percent: 52 }],
-      },
+      completed: false,
     },
     {
       id: 'sim-03',
@@ -1038,24 +963,7 @@ export const joaoData: StudentData = {
       portQuestions: 15,
       hasEssay: true,
       suggestedMinutes: 90,
-      completed: true,
-      result: {
-        correct: 24,
-        total: 35,
-        bySubject: [
-          { subject: 'matematica', correct: 12, total: 20 },
-          { subject: 'portugues', correct: 12, total: 15 },
-        ],
-        essayGrade: 7.3,
-        strengths: [
-          { topic: 'Interpretação de tirinhas', percent: 90 },
-          { topic: 'Classes gramaticais', percent: 84 },
-        ],
-        weaknesses: [
-          { topic: 'Frações', percent: 58 },
-          { topic: 'Números decimais', percent: 62 },
-        ],
-      },
+      completed: false,
     },
     {
       id: 'sim-04',
@@ -1067,16 +975,15 @@ export const joaoData: StudentData = {
       hasEssay: true,
       suggestedMinutes: 90,
       completed: false,
-      daysUntil: 12,
     },
   ],
 
   achievements: [
     { id: 'ach-1', icon: '🔥', title: 'Embalado', description: '7 dias estudando', unlocked: false },
-    { id: 'ach-2', icon: '🎯', title: 'Na mosca', description: '10 questões corretas seguidas', unlocked: true },
-    { id: 'ach-3', icon: '📚', title: 'Leitor atento', description: '50 questões de interpretação', unlocked: true },
+    { id: 'ach-2', icon: '🎯', title: 'Na mosca', description: '10 questões corretas seguidas', unlocked: false },
+    { id: 'ach-3', icon: '📚', title: 'Leitor atento', description: '50 questões de interpretação', unlocked: false },
     { id: 'ach-4', icon: '🧠', title: 'Mestre dos números', description: '100 questões de Matemática', unlocked: false },
     { id: 'ach-5', icon: '✍️', title: 'Escritor', description: '5 redações concluídas', unlocked: false },
-    { id: 'ach-6', icon: '🏆', title: 'Semana perfeita', description: 'Concluiu todas as atividades da semana', unlocked: true },
+    { id: 'ach-6', icon: '🏆', title: 'Semana perfeita', description: 'Concluiu todas as atividades da semana', unlocked: false },
   ],
 }

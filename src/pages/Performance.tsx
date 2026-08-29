@@ -41,40 +41,52 @@ export default function Performance() {
 
       <div className="rounded-xl2 bg-white p-6 shadow-soft">
         <h2 className="font-semibold">Evolução dos simulados</h2>
-        <div className="mt-4">
-          <PerformanceChart data={overview.simulationEvolution} />
-        </div>
+        {overview.simulationEvolution.length > 0 ? (
+          <div className="mt-4">
+            <PerformanceChart data={overview.simulationEvolution} />
+          </div>
+        ) : (
+          <p className="mt-4 text-sm text-ink-soft">Assim que você fizer o primeiro simulado, sua evolução aparece aqui.</p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
         <div className="rounded-xl2 bg-essay/20 p-5">
           <h3 className="font-semibold text-essay-ink">Pontos fortes</h3>
-          <div className="mt-4 flex flex-col gap-3">
-            {overview.strengths.map((s) => (
-              <div key={s.topic} className="flex flex-col gap-1">
-                <div className="flex justify-between text-sm">
-                  <span>{s.topic}</span>
-                  <span className="font-semibold">{s.percent}%</span>
+          {overview.strengths.length === 0 ? (
+            <p className="mt-4 text-sm text-ink-soft">Continue estudando para descobrirmos seus pontos fortes.</p>
+          ) : (
+            <div className="mt-4 flex flex-col gap-3">
+              {overview.strengths.map((s) => (
+                <div key={s.topic} className="flex flex-col gap-1">
+                  <div className="flex justify-between text-sm">
+                    <span>{s.topic}</span>
+                    <span className="font-semibold">{s.percent}%</span>
+                  </div>
+                  <ProgressBar percent={s.percent} tone="essay" height="sm" />
                 </div>
-                <ProgressBar percent={s.percent} tone="essay" height="sm" />
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="rounded-xl2 bg-port/20 p-5">
           <h3 className="font-semibold text-port-ink">Precisa reforçar</h3>
-          <div className="mt-4 flex flex-col gap-3">
-            {overview.weaknesses.map((s) => (
-              <div key={s.topic} className="flex flex-col gap-1">
-                <div className="flex justify-between text-sm">
-                  <span>{s.topic}</span>
-                  <span className="font-semibold">{s.percent}%</span>
+          {overview.weaknesses.length === 0 ? (
+            <p className="mt-4 text-sm text-ink-soft">Ainda não há dados suficientes — isso muda conforme você pratica.</p>
+          ) : (
+            <div className="mt-4 flex flex-col gap-3">
+              {overview.weaknesses.map((s) => (
+                <div key={s.topic} className="flex flex-col gap-1">
+                  <div className="flex justify-between text-sm">
+                    <span>{s.topic}</span>
+                    <span className="font-semibold">{s.percent}%</span>
+                  </div>
+                  <ProgressBar percent={s.percent} tone="port" height="sm" />
                 </div>
-                <ProgressBar percent={s.percent} tone="port" height="sm" />
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

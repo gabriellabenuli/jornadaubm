@@ -23,7 +23,9 @@ export function SubjectCard({ subject, studentId }: { subject: SubjectProgress; 
       <span className="text-sm text-ink-soft">{subject.percentComplete}% concluído</span>
 
       {subject.key === 'redacao' ? (
-        <span className="text-sm text-ink-soft">Nota média: {subject.averageGrade?.toFixed(1)}</span>
+        <span className="text-sm text-ink-soft">
+          {subject.averageGrade !== undefined ? `Nota média: ${subject.averageGrade.toFixed(1)}` : 'Nenhuma redação ainda'}
+        </span>
       ) : (
         <>
           <span className="text-sm text-ink-soft">{subject.questionsAnswered} questões respondidas</span>

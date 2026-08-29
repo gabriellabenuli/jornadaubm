@@ -4,6 +4,7 @@ export function EssayHistory({ entries }: { entries: EssayEntry[] }) {
   return (
     <div className="flex flex-col gap-3 rounded-xl2 bg-white p-5 shadow-soft">
       <span className="font-semibold">Minhas redações</span>
+      {entries.length === 0 && <p className="text-sm text-ink-soft">Você ainda não enviou nenhuma redação.</p>}
       {entries.map((entry, i) => {
         const prev = entries[i - 1]
         const improved = prev ? entry.grade > prev.grade : false
