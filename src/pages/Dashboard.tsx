@@ -22,6 +22,11 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col">
       <StudentHeader profile={data.profile} xp={data.xp} daysRemaining={data.exam.daysRemaining} />
+
+      <div className="mb-6">
+        <ProgressCard overview={data.performanceOverview} size="sm" />
+      </div>
+
       <JourneyTimeline exam={data.exam} />
 
       <div className="grid grid-cols-3 gap-6">
@@ -32,10 +37,6 @@ export default function Dashboard() {
           <CurrentFocus focus={data.currentFocus} />
           <StudyStreak streak={data.streak} />
         </div>
-      </div>
-
-      <div className="mt-6">
-        <ProgressCard overview={data.performanceOverview} />
       </div>
 
       <div className="mt-6 grid grid-cols-3 gap-6">

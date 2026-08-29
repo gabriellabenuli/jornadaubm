@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import { Calculator, BookOpen, PenLine } from 'lucide-react'
 import { useAppStore } from '../store/useAppStore'
 import type { StudentId } from '../store/useAppStore'
 import type { ErrorStatus } from '../data/types'
@@ -33,9 +34,24 @@ export default function ErrorNotebook() {
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <StatCard value={String(errorNotebook.bySubjectCount.matematica)} label="Matemática" />
-        <StatCard value={String(errorNotebook.bySubjectCount.portugues)} label="Português" />
-        <StatCard value={String(errorNotebook.bySubjectCount.redacao)} label="Redação — pontos de atenção" />
+        <StatCard
+          value={String(errorNotebook.bySubjectCount.matematica)}
+          label="Matemática"
+          tone="math"
+          icon={<Calculator size={18} />}
+        />
+        <StatCard
+          value={String(errorNotebook.bySubjectCount.portugues)}
+          label="Português"
+          tone="port"
+          icon={<BookOpen size={18} />}
+        />
+        <StatCard
+          value={String(errorNotebook.bySubjectCount.redacao)}
+          label="Redação — pontos de atenção"
+          tone="essay"
+          icon={<PenLine size={18} />}
+        />
       </div>
 
       <div className="flex flex-col gap-4 rounded-xl2 bg-white p-6 shadow-soft">

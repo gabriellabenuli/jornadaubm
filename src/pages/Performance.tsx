@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import { Target, Calculator, BookOpen, ListChecks, Clock, PenLine } from 'lucide-react'
 import { useAppStore } from '../store/useAppStore'
 import type { StudentId } from '../store/useAppStore'
 import { StatCard } from '../components/shared/StatCard'
@@ -20,12 +21,22 @@ export default function Performance() {
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <StatCard value={`${overview.accuracyRate}%`} label="taxa geral de acertos" />
-        <StatCard value={`${overview.mathAccuracy}%`} label="Matemática" />
-        <StatCard value={`${overview.portAccuracy}%`} label="Português" />
-        <StatCard value={String(overview.questionsAnswered)} label="questões realizadas" />
-        <StatCard value={`${hours}h${String(minutes).padStart(2, '0')}`} label="tempo estudado" />
-        <StatCard value={String(overview.essaysCount)} label="redações" />
+        <StatCard value={`${overview.accuracyRate}%`} label="taxa geral de acertos" tone="review" icon={<Target size={18} />} />
+        <StatCard value={`${overview.mathAccuracy}%`} label="Matemática" tone="math" icon={<Calculator size={18} />} />
+        <StatCard value={`${overview.portAccuracy}%`} label="Português" tone="port" icon={<BookOpen size={18} />} />
+        <StatCard
+          value={String(overview.questionsAnswered)}
+          label="questões realizadas"
+          tone="sim"
+          icon={<ListChecks size={18} />}
+        />
+        <StatCard
+          value={`${hours}h${String(minutes).padStart(2, '0')}`}
+          label="tempo estudado"
+          tone="essay"
+          icon={<Clock size={18} />}
+        />
+        <StatCard value={String(overview.essaysCount)} label="redações" tone="essay" icon={<PenLine size={18} />} />
       </div>
 
       <div className="rounded-xl2 bg-white p-6 shadow-soft">

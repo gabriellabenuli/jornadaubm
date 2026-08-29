@@ -24,12 +24,30 @@ export function StatCard({
   label,
   icon,
   tone = 'neutral',
+  size = 'md',
 }: {
   value: string
   label: string
   icon?: ReactNode
   tone?: Tone
+  size?: 'md' | 'sm'
 }) {
+  if (size === 'sm') {
+    return (
+      <div className={`card-interactive flex items-center gap-3 rounded-xl2 p-3 shadow-soft ${BG_CLASS[tone]}`}>
+        {icon && (
+          <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${ICON_BG_CLASS[tone]}`}>
+            {icon}
+          </div>
+        )}
+        <div className="min-w-0">
+          <span className="text-lg font-extrabold leading-tight tracking-tight">{value}</span>
+          <p className="truncate text-xs text-ink-soft">{label}</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={`card-interactive flex flex-col gap-3 rounded-xl2 p-5 shadow-soft ${BG_CLASS[tone]}`}>
       {icon && <div className={`flex h-9 w-9 items-center justify-center rounded-full ${ICON_BG_CLASS[tone]}`}>{icon}</div>}
