@@ -1,0 +1,16 @@
+import type { PerformanceOverview } from '../../data/types'
+import { StatCard } from '../shared/StatCard'
+
+export function ProgressCard({ overview }: { overview: PerformanceOverview }) {
+  const hours = Math.floor(overview.hoursStudied)
+  const minutes = Math.round((overview.hoursStudied % 1) * 60)
+
+  return (
+    <div className="grid grid-cols-4 gap-4">
+      <StatCard value={String(overview.daysStudied)} label="dias estudados" />
+      <StatCard value={`${hours}h${String(minutes).padStart(2, '0')}`} label="de estudo" />
+      <StatCard value={String(overview.questionsAnswered)} label="questões" />
+      <StatCard value={`${overview.accuracyRate}%`} label="de acertos" />
+    </div>
+  )
+}

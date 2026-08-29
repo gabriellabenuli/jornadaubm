@@ -1,0 +1,628 @@
+import type { StudentData } from './types'
+
+export const joaoData: StudentData = {
+  profile: {
+    id: 'joao',
+    name: 'João',
+    avatarColor: '#E0793F',
+    currentGrade: '5º ano',
+    targetGrade: '6º ano',
+    examDate: '2026-09-26',
+  },
+
+  xp: { total: 860, level: 5, xpForNextLevel: 140, xpSpanForLevel: 400 },
+
+  streak: {
+    currentDays: 4,
+    bestDays: 6,
+    last7Days: ['missed', 'done', 'done', 'done', 'done', 'missed', 'missed'],
+  },
+
+  exam: { date: '2026-09-26', daysRemaining: 29, weeksTotal: 5, currentWeek: 3 },
+
+  dailyMission: {
+    totalMinutes: 90,
+    stages: [
+      {
+        id: 'joao-stage-aprender',
+        kind: 'aprender',
+        title: 'Frações — comparando frações',
+        subject: 'matematica',
+        minutes: 15,
+        completed: false,
+        ctaLabel: 'Começar',
+        ctaRoute: '/joao/materia/matematica/aula/fracoes',
+      },
+      {
+        id: 'joao-stage-praticar',
+        kind: 'praticar',
+        title: 'Praticar',
+        subject: 'matematica',
+        targetQuestions: [
+          { subject: 'matematica', count: 20 },
+          { subject: 'portugues', count: 15 },
+        ],
+        completed: false,
+        ctaLabel: 'Praticar',
+        ctaRoute: '/joao/materia/matematica/exercicios/pratica-fracoes',
+      },
+      {
+        id: 'joao-stage-escrever',
+        kind: 'escrever',
+        title: 'Reconto de mito',
+        subject: 'redacao',
+        completed: false,
+        ctaLabel: 'Começar',
+        ctaRoute: '/joao/redacao',
+      },
+    ],
+  },
+
+  currentFocus: {
+    topic: 'Frações',
+    subject: 'matematica',
+    reason: 'Você acertou 58% das últimas questões desse assunto. Vamos reforçar antes de avançar.',
+    metricLabel: '58% de acerto',
+    ctaLabel: 'Revisar por 10 min',
+    ctaRoute: '/joao/materia/matematica',
+  },
+
+  subjects: {
+    matematica: {
+      key: 'matematica',
+      label: 'Matemática',
+      percentComplete: 54,
+      questionsAnswered: 260,
+      accuracyRate: 64,
+      color: 'math',
+    },
+    portugues: {
+      key: 'portugues',
+      label: 'Português',
+      percentComplete: 68,
+      questionsAnswered: 230,
+      accuracyRate: 81,
+      color: 'port',
+    },
+    redacao: {
+      key: 'redacao',
+      label: 'Redação',
+      percentComplete: 50,
+      questionsAnswered: 0,
+      accuracyRate: 0,
+      averageGrade: 7.3,
+      color: 'essay',
+    },
+  },
+
+  performanceOverview: {
+    daysStudied: 14,
+    hoursStudied: 9.5,
+    questionsAnswered: 312,
+    accuracyRate: 72,
+    mathAccuracy: 64,
+    portAccuracy: 81,
+    essaysCount: 3,
+    simulationEvolution: [
+      { label: 'Simulado 01', percent: 55 },
+      { label: 'Simulado 02', percent: 61 },
+      { label: 'Simulado 03', percent: 70 },
+    ],
+    strengths: [
+      { topic: 'Interpretação de tirinhas', percent: 90 },
+      { topic: 'Classes gramaticais', percent: 84 },
+      { topic: 'Ortografia', percent: 80 },
+    ],
+    weaknesses: [
+      { topic: 'Frações', percent: 58 },
+      { topic: 'Números decimais', percent: 62 },
+      { topic: 'Situações-problema', percent: 65 },
+    ],
+  },
+
+  journey: [
+    {
+      id: 'semana-1',
+      title: 'Semana 1',
+      subtitle: 'Fundamentos',
+      days: [
+        {
+          date: '31 AGO',
+          weekday: 'SEG',
+          status: 'done',
+          activities: [
+            { subject: 'matematica', label: 'Números naturais', done: true },
+            { subject: 'portugues', label: 'Leitura de tirinhas', done: true },
+          ],
+        },
+        {
+          date: '01 SET',
+          weekday: 'TER',
+          status: 'done',
+          activities: [
+            { subject: 'matematica', label: 'Introdução às frações', done: true },
+            { subject: 'portugues', label: 'Substantivos e adjetivos', done: true },
+          ],
+        },
+        {
+          date: '02 SET',
+          weekday: 'QUA',
+          status: 'done',
+          activities: [{ subject: 'matematica', label: 'Frações equivalentes', done: true }],
+        },
+        {
+          date: '03 SET',
+          weekday: 'QUI',
+          status: 'done',
+          activities: [{ subject: 'redacao', label: 'O que é um mito?', done: true }],
+        },
+        {
+          date: '04 SET',
+          weekday: 'SEX',
+          status: 'done',
+          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: true }],
+        },
+      ],
+    },
+    {
+      id: 'semana-2',
+      title: 'Semana 2',
+      subtitle: 'Construção',
+      days: [
+        {
+          date: '07 SET',
+          weekday: 'SEG',
+          status: 'done',
+          activities: [
+            { subject: 'matematica', label: 'Comparando frações', done: true },
+            { subject: 'portugues', label: 'Interpretação de tirinhas', done: true },
+          ],
+        },
+        {
+          date: '08 SET',
+          weekday: 'TER',
+          status: 'done',
+          activities: [{ subject: 'matematica', label: 'Números decimais', done: true }],
+        },
+        {
+          date: '09 SET',
+          weekday: 'QUA',
+          status: 'done',
+          activities: [{ subject: 'portugues', label: 'Pontuação', done: true }],
+        },
+        {
+          date: '10 SET',
+          weekday: 'QUI',
+          status: 'done',
+          activities: [{ subject: 'redacao', label: 'Mitos — planejamento', done: true }],
+        },
+        {
+          date: '11 SET',
+          weekday: 'SEX',
+          status: 'done',
+          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: true }],
+        },
+      ],
+    },
+    {
+      id: 'semana-3',
+      title: 'Semana 3',
+      subtitle: 'Aprofundamento',
+      days: [
+        {
+          date: '14 SET',
+          weekday: 'SEG',
+          status: 'done',
+          activities: [{ subject: 'matematica', label: 'Frações — comparando frações', done: true }],
+        },
+        {
+          date: '15 SET',
+          weekday: 'TER',
+          status: 'today',
+          activities: [
+            { subject: 'matematica', label: 'Frações — comparando frações', done: false },
+            { subject: 'portugues', label: 'Interpretação de tirinhas', done: false },
+            { subject: 'redacao', label: 'Reconto de mito', done: false },
+          ],
+        },
+        {
+          date: '16 SET',
+          weekday: 'QUA',
+          status: 'next',
+          activities: [{ subject: 'matematica', label: 'Operações com frações', done: false }],
+        },
+        {
+          date: '17 SET',
+          weekday: 'QUI',
+          status: 'future',
+          activities: [{ subject: 'portugues', label: 'Sinônimos e antônimos', done: false }],
+        },
+        {
+          date: '18 SET',
+          weekday: 'SEX',
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: false }],
+        },
+      ],
+    },
+    {
+      id: 'semana-4',
+      title: 'Semana 4',
+      subtitle: 'Consolidação',
+      days: [
+        {
+          date: '21 SET',
+          weekday: 'SEG',
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Situações-problema', done: false }],
+        },
+        {
+          date: '22 SET',
+          weekday: 'TER',
+          status: 'future',
+          activities: [{ subject: 'portugues', label: 'Figuras de linguagem', done: false }],
+        },
+        {
+          date: '23 SET',
+          weekday: 'QUA',
+          status: 'future',
+          activities: [{ subject: 'redacao', label: 'Reconto de mito — revisão', done: false }],
+        },
+        {
+          date: '24 SET',
+          weekday: 'QUI',
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Simulado geral', done: false }],
+        },
+        {
+          date: '25 SET',
+          weekday: 'SEX',
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Revisão da semana', done: false }],
+        },
+      ],
+    },
+    {
+      id: 'semana-final',
+      title: 'Semana Final',
+      subtitle: 'Revisão',
+      days: [
+        {
+          date: '28 SET',
+          weekday: 'SEG',
+          status: 'future',
+          activities: [{ subject: 'matematica', label: 'Revisão geral', done: false }],
+        },
+        {
+          date: '26 SET',
+          weekday: 'SÁB',
+          status: 'future',
+          activities: [{ subject: 'matematica', label: '🏁 Prova UBM', done: false }],
+        },
+      ],
+    },
+  ],
+
+  lessons: {
+    fracoes: {
+      id: 'fracoes',
+      subject: 'matematica',
+      title: 'Frações — comparando frações',
+      progressPercent: 35,
+      exerciseSetId: 'pratica-fracoes',
+      sections: [
+        {
+          id: 'sec-1',
+          type: 'text',
+          title: 'O que é uma fração?',
+          body: 'Uma fração representa uma parte de um todo dividido em partes iguais. Ela é escrita como um número sobre outro, por exemplo 3/4, onde o número de cima (numerador) indica quantas partes você tem, e o número de baixo (denominador) indica em quantas partes o todo foi dividido.',
+        },
+        {
+          id: 'sec-2',
+          type: 'text',
+          title: 'Frações com o mesmo denominador',
+          body: 'Quando duas frações têm o mesmo denominador, basta comparar os numeradores: quanto maior o numerador, maior a fração. Por exemplo, 5/8 é maior que 3/8, porque 5 é maior que 3 e as duas frações têm 8 partes iguais no total.',
+        },
+        {
+          id: 'sec-3',
+          type: 'text',
+          title: 'Frações com denominadores diferentes',
+          body: 'Para comparar frações com denominadores diferentes, como 2/3 e 3/5, o jeito mais seguro é igualar os denominadores (encontrar um denominador comum) ou transformar as frações em decimais e comparar os valores.',
+        },
+        {
+          id: 'sec-4',
+          type: 'example',
+          title: 'Exemplo resolvido',
+          body: 'Compare 2/3 e 3/5.\n\nPasso 1 — encontrar um denominador comum: 3 × 5 = 15\nPasso 2 — transformar as frações: 2/3 = 10/15 e 3/5 = 9/15\nPasso 3 — comparar: 10/15 > 9/15, então 2/3 > 3/5',
+        },
+        {
+          id: 'sec-5',
+          type: 'example',
+          title: 'Outro exemplo resolvido',
+          body: 'Compare 1/2 e 4/9.\n\nPasso 1 — denominador comum: 2 × 9 = 18\nPasso 2 — transformar: 1/2 = 9/18 e 4/9 = 8/18\nPasso 3 — comparar: 9/18 > 8/18, então 1/2 > 4/9',
+        },
+        {
+          id: 'sec-6',
+          type: 'attention',
+          title: 'Atenção',
+          body: 'Um erro comum é comparar apenas os numeradores sem olhar para os denominadores. 3/10 parece "maior" que 1/2 por causa do numerador 3, mas na verdade 1/2 é bem maior. Sempre confira os denominadores antes de comparar!',
+        },
+        {
+          id: 'sec-7',
+          type: 'summary',
+          title: 'Resumo visual',
+          body: '1. Mesmo denominador → compare os numeradores.\n2. Denominadores diferentes → encontre um denominador comum.\n3. Sempre desconfie de comparar só o numerador.',
+        },
+      ],
+    },
+  },
+
+  questionSets: {
+    'pratica-fracoes': [
+      {
+        id: 'q1',
+        subject: 'matematica',
+        topic: 'Frações',
+        prompt: 'Qual fração é maior: 3/4 ou 5/8?',
+        options: [
+          { id: 'a', label: '3/4' },
+          { id: 'b', label: '5/8' },
+          { id: 'c', label: 'São iguais' },
+          { id: 'd', label: 'Não é possível comparar' },
+          { id: 'e', label: 'Depende do contexto' },
+        ],
+        correctOptionId: 'a',
+        explanation: 'Transformando 3/4 em oitavos: 3/4 = 6/8, que é maior que 5/8.',
+        stepByStep: ['Denominador comum: 8', '3/4 = 6/8', '6/8 > 5/8', 'Logo, 3/4 é maior'],
+      },
+      {
+        id: 'q2',
+        subject: 'matematica',
+        topic: 'Frações',
+        prompt: 'Uma pizza foi dividida em 8 pedaços iguais. Se você comeu 3 pedaços, que fração da pizza você comeu?',
+        options: [
+          { id: 'a', label: '3/5' },
+          { id: 'b', label: '3/8' },
+          { id: 'c', label: '5/8' },
+          { id: 'd', label: '8/3' },
+          { id: 'e', label: '1/3' },
+        ],
+        correctOptionId: 'b',
+        explanation: 'Você comeu 3 dos 8 pedaços iguais, ou seja, 3/8 da pizza.',
+        stepByStep: ['Total de pedaços: 8', 'Pedaços comidos: 3', 'Fração: 3/8'],
+      },
+      {
+        id: 'q3',
+        subject: 'matematica',
+        topic: 'Números decimais',
+        prompt: 'Qual é o valor de 0,4 + 0,25?',
+        options: [
+          { id: 'a', label: '0,29' },
+          { id: 'b', label: '0,45' },
+          { id: 'c', label: '0,65' },
+          { id: 'd', label: '0,6' },
+          { id: 'e', label: '0,69' },
+        ],
+        correctOptionId: 'c',
+        explanation: 'Alinhando as casas decimais: 0,40 + 0,25 = 0,65.',
+        stepByStep: ['0,40', '+ 0,25', '= 0,65'],
+      },
+      {
+        id: 'q4',
+        subject: 'portugues',
+        topic: 'Interpretação de tirinhas',
+        prompt: 'Observe a tirinha e responda: o que causa o efeito de humor nela?',
+        media: { kind: 'tirinha', caption: 'Tirinha: criança pede para o cachorro "buscar a bola", e ele traz outra coisa em vez da bola.' },
+        options: [
+          { id: 'a', label: 'O cachorro entende tudo perfeitamente' },
+          { id: 'b', label: 'A quebra de expectativa entre o pedido e o que o cachorro realmente faz' },
+          { id: 'c', label: 'O cenário da tirinha é muito colorido' },
+          { id: 'd', label: 'A criança não gosta de cachorros' },
+          { id: 'e', label: 'O texto da tirinha é muito longo' },
+        ],
+        correctOptionId: 'b',
+        explanation: 'O humor nasce da diferença entre o que se pede e o que realmente acontece — uma quebra de expectativa clássica das tirinhas.',
+        stepByStep: [
+          'O que se espera: o cachorro trazer a bola',
+          'O que acontece: o cachorro traz outra coisa',
+          'Essa diferença gera o efeito cômico',
+        ],
+      },
+      {
+        id: 'q5',
+        subject: 'portugues',
+        topic: 'Classes gramaticais',
+        prompt: 'Na frase "O gato preto dormiu o dia todo", a palavra "preto" é classificada como:',
+        options: [
+          { id: 'a', label: 'Substantivo' },
+          { id: 'b', label: 'Verbo' },
+          { id: 'c', label: 'Adjetivo' },
+          { id: 'd', label: 'Advérbio' },
+          { id: 'e', label: 'Pronome' },
+        ],
+        correctOptionId: 'c',
+        explanation: '"Preto" caracteriza o substantivo "gato", por isso é um adjetivo.',
+        stepByStep: ['Identifique o substantivo: "gato"', 'Veja qual palavra o caracteriza: "preto"', 'Palavras que caracterizam substantivos são adjetivos'],
+      },
+      {
+        id: 'q6',
+        subject: 'matematica',
+        topic: 'Frações',
+        prompt: 'Simplificando a fração 8/12, qual é o resultado?',
+        options: [
+          { id: 'a', label: '1/2' },
+          { id: 'b', label: '2/3' },
+          { id: 'c', label: '3/4' },
+          { id: 'd', label: '4/6' },
+          { id: 'e', label: '2/6' },
+        ],
+        correctOptionId: 'b',
+        explanation: 'Dividindo numerador e denominador por 4: 8÷4=2 e 12÷4=3, resultando em 2/3.',
+        stepByStep: ['MDC entre 8 e 12 é 4', '8 ÷ 4 = 2', '12 ÷ 4 = 3', 'Fração simplificada: 2/3'],
+      },
+    ],
+  },
+
+  errorNotebook: {
+    bySubjectCount: { matematica: 15, portugues: 5, redacao: 3 },
+    topicBreakdown: [
+      { topic: 'Frações', subject: 'matematica', count: 9 },
+      { topic: 'Números decimais', subject: 'matematica', count: 6 },
+      { topic: 'Interpretação de tirinhas', subject: 'portugues', count: 3 },
+      { topic: 'Ortografia', subject: 'portugues', count: 2 },
+    ],
+    entries: [
+      {
+        id: 'err-1',
+        subject: 'matematica',
+        topic: 'Frações',
+        prompt: 'Compare as frações 5/6 e 7/9 e diga qual é maior.',
+        status: 'recent',
+        missedOn: '2026-08-27',
+      },
+      {
+        id: 'err-2',
+        subject: 'matematica',
+        topic: 'Números decimais',
+        prompt: 'Escreva 3/4 na forma decimal.',
+        status: 'review',
+        missedOn: '2026-08-21',
+      },
+      {
+        id: 'err-3',
+        subject: 'portugues',
+        topic: 'Interpretação de tirinhas',
+        prompt: 'O que o gesto do personagem na última cena sugere?',
+        status: 'mastered',
+        missedOn: '2026-08-09',
+      },
+      {
+        id: 'err-4',
+        subject: 'matematica',
+        topic: 'Frações',
+        prompt: 'Simplifique a fração 12/18.',
+        status: 'review',
+        missedOn: '2026-08-24',
+      },
+    ],
+  },
+
+  essays: {
+    currentPrompt: {
+      theme: 'Um mito com uma nova aventura',
+      genre: 'Reconto de mito',
+      guidance:
+        'Reescreva, com suas palavras, um mito conhecido (como Curupira, Iara ou Boitatá) imaginando que o personagem principal vive uma nova aventura. Mantenha as características do personagem, mas crie um cenário novo.',
+      expectedStructure: [
+        'Apresentação — quem é o personagem mítico e onde ele vive',
+        'Aventura — o novo desafio ou situação que ele enfrenta',
+        'Final — como a aventura se resolve',
+      ],
+    },
+    checklist: [
+      { id: 'c1', label: 'Atendi ao tema' },
+      { id: 'c2', label: 'Organizei as ideias' },
+      { id: 'c3', label: 'Revisei ortografia' },
+      { id: 'c4', label: 'Revisei pontuação' },
+      { id: 'c5', label: 'Conferi o número de linhas' },
+    ],
+    history: [
+      { id: 'e1', label: 'Redação #01', grade: 6.5, date: '2026-08-06' },
+      { id: 'e2', label: 'Redação #02', grade: 7.2, date: '2026-08-15' },
+      { id: 'e3', label: 'Redação #03', grade: 7.3, date: '2026-08-24' },
+    ],
+  },
+
+  simulations: [
+    {
+      id: 'sim-01',
+      label: 'SIMULADO 01',
+      scopeLabel: 'Semana 1',
+      totalQuestions: 15,
+      mathQuestions: 9,
+      portQuestions: 6,
+      hasEssay: false,
+      suggestedMinutes: 40,
+      completed: true,
+      result: {
+        correct: 8,
+        total: 15,
+        bySubject: [
+          { subject: 'matematica', correct: 4, total: 9 },
+          { subject: 'portugues', correct: 4, total: 6 },
+        ],
+        strengths: [{ topic: 'Interpretação de tirinhas', percent: 88 }],
+        weaknesses: [{ topic: 'Frações', percent: 44 }],
+      },
+    },
+    {
+      id: 'sim-02',
+      label: 'SIMULADO 02',
+      scopeLabel: 'Semanas 1 + 2',
+      totalQuestions: 25,
+      mathQuestions: 15,
+      portQuestions: 10,
+      hasEssay: false,
+      suggestedMinutes: 60,
+      completed: true,
+      result: {
+        correct: 15,
+        total: 25,
+        bySubject: [
+          { subject: 'matematica', correct: 8, total: 15 },
+          { subject: 'portugues', correct: 7, total: 10 },
+        ],
+        strengths: [{ topic: 'Classes gramaticais', percent: 84 }],
+        weaknesses: [{ topic: 'Números decimais', percent: 52 }],
+      },
+    },
+    {
+      id: 'sim-03',
+      label: 'SIMULADO 03',
+      scopeLabel: 'Semanas 1 + 2 + 3',
+      totalQuestions: 35,
+      mathQuestions: 20,
+      portQuestions: 15,
+      hasEssay: true,
+      suggestedMinutes: 90,
+      completed: true,
+      result: {
+        correct: 24,
+        total: 35,
+        bySubject: [
+          { subject: 'matematica', correct: 12, total: 20 },
+          { subject: 'portugues', correct: 12, total: 15 },
+        ],
+        essayGrade: 7.3,
+        strengths: [
+          { topic: 'Interpretação de tirinhas', percent: 90 },
+          { topic: 'Classes gramaticais', percent: 84 },
+        ],
+        weaknesses: [
+          { topic: 'Frações', percent: 58 },
+          { topic: 'Números decimais', percent: 62 },
+        ],
+      },
+    },
+    {
+      id: 'sim-04',
+      label: 'SIMULADO 04',
+      scopeLabel: 'Todo conteúdo estudado',
+      totalQuestions: 35,
+      mathQuestions: 20,
+      portQuestions: 15,
+      hasEssay: true,
+      suggestedMinutes: 90,
+      completed: false,
+    },
+  ],
+
+  achievements: [
+    { id: 'ach-1', icon: '🔥', title: 'Embalado', description: '7 dias estudando', unlocked: false },
+    { id: 'ach-2', icon: '🎯', title: 'Na mosca', description: '10 questões corretas seguidas', unlocked: true },
+    { id: 'ach-3', icon: '📚', title: 'Leitor atento', description: '50 questões de interpretação', unlocked: true },
+    { id: 'ach-4', icon: '🧠', title: 'Mestre dos números', description: '100 questões de Matemática', unlocked: false },
+    { id: 'ach-5', icon: '✍️', title: 'Escritor', description: '5 redações concluídas', unlocked: false },
+    { id: 'ach-6', icon: '🏆', title: 'Semana perfeita', description: 'Concluiu todas as atividades da semana', unlocked: true },
+  ],
+}
