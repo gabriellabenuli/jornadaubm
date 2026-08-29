@@ -333,19 +333,19 @@ export const nicolasData: StudentData = {
           id: 'sec-3',
           type: 'text',
           title: 'Isolando a incógnita',
-          body: 'Para resolver 2x + 3 = 11, o objetivo é deixar o x sozinho de um lado. Primeiro, subtraímos 3 dos dois lados: 2x + 3 − 3 = 11 − 3, ou seja, 2x = 8. Depois, dividimos os dois lados por 2: 2x/2 = 8/2, ou seja, x = 4.',
+          body: 'Para resolver 2x + 3 = 11, o objetivo é deixar o x sozinho de um lado. Vamos passo a passo:\n\nPasso 1 — o x está sendo somado com 3, então fazemos a operação inversa (subtração) dos dois lados, para cancelar o +3: 2x + 3 − 3 = 11 − 3.\n\nPasso 2 — calculamos os dois lados separadamente. Do lado esquerdo, 3 − 3 = 0, então sobra só 2x. Do lado direito, 11 − 3 = 8. A equação fica: 2x = 8.\n\nPasso 3 — agora o x está sendo multiplicado por 2, então fazemos a operação inversa (divisão) dos dois lados, para cancelar o × 2: 2x ÷ 2 = 8 ÷ 2.\n\nPasso 4 — calculamos: do lado esquerdo, 2x ÷ 2 = x. Do lado direito, 8 ÷ 2 = 4. Resultado: x = 4.',
         },
         {
           id: 'sec-4',
           type: 'example',
           title: 'Exemplo resolvido',
-          body: 'Resolva: 3x − 5 = 16\n\nPasso 1 — somar 5 dos dois lados: 3x − 5 + 5 = 16 + 5 → 3x = 21\nPasso 2 — dividir os dois lados por 3: 3x/3 = 21/3 → x = 7\n\nVerificação: 3 × 7 − 5 = 21 − 5 = 16 ✓',
+          body: 'Resolva: 3x − 5 = 16\n\nPasso 1 — o x está sendo diminuído de 5, então fazemos a operação inversa (soma) dos dois lados, para cancelar o −5: 3x − 5 + 5 = 16 + 5.\n\nPasso 2 — calculamos cada lado. Do lado esquerdo, −5 + 5 = 0, então sobra só 3x. Do lado direito, 16 + 5 = 21. A equação fica: 3x = 21.\n\nPasso 3 — o x está sendo multiplicado por 3, então dividimos os dois lados por 3, para cancelar o × 3: 3x ÷ 3 = 21 ÷ 3.\n\nPasso 4 — calculamos: do lado esquerdo, 3x ÷ 3 = x. Do lado direito, 21 ÷ 3 = 7. Resultado: x = 7.\n\nVerificação — substitua x por 7 na equação original para conferir: 3 × 7 − 5 = 21 − 5 = 16. Como bateu com o valor original (16), a resposta está correta ✓',
         },
         {
           id: 'sec-5',
           type: 'example',
           title: 'Outro exemplo resolvido',
-          body: 'Resolva: 5x + 2 = 3x + 10\n\nPasso 1 — deixar os termos com x de um lado: 5x − 3x + 2 = 10 → 2x + 2 = 10\nPasso 2 — subtrair 2 dos dois lados: 2x = 8\nPasso 3 — dividir por 2: x = 4',
+          body: 'Resolva: 5x + 2 = 3x + 10\n\nPasso 1 — aqui há termos com x nos dois lados. Primeiro, vamos juntar todos os termos com x do mesmo lado, subtraindo 3x dos dois lados (para cancelar o 3x do lado direito): 5x + 2 − 3x = 3x + 10 − 3x.\n\nPasso 2 — calculamos cada lado. Do lado esquerdo, 5x − 3x = 2x, então sobra 2x + 2. Do lado direito, 3x − 3x = 0, então sobra só 10. A equação fica: 2x + 2 = 10.\n\nPasso 3 — agora isolamos o termo com x, subtraindo 2 dos dois lados (para cancelar o +2): 2x + 2 − 2 = 10 − 2.\n\nPasso 4 — calculamos: do lado esquerdo, 2 − 2 = 0, sobra 2x. Do lado direito, 10 − 2 = 8. A equação fica: 2x = 8.\n\nPasso 5 — dividimos os dois lados por 2, para cancelar o × 2: 2x ÷ 2 = 8 ÷ 2, ou seja, x = 4.\n\nVerificação — substitua x por 4 nos dois lados da equação original: lado esquerdo, 5 × 4 + 2 = 20 + 2 = 22; lado direito, 3 × 4 + 10 = 12 + 10 = 22. Os dois lados deram 22, então a resposta está correta ✓',
         },
         {
           id: 'sec-6',
@@ -391,13 +391,13 @@ export const nicolasData: StudentData = {
           id: 'sec-4',
           type: 'example',
           title: 'Exemplo resolvido',
-          body: 'Uma loja está com 30% de desconto em um produto de R$ 80. Qual o valor do desconto?\n\nPasso 1 — transformar 30% em decimal: 30% = 0,3\nPasso 2 — multiplicar pelo valor: 80 × 0,3 = 24\n\nO desconto é de R$ 24, e o produto sairá por R$ 80 − R$ 24 = R$ 56.',
+          body: 'Uma loja está com 30% de desconto em um produto de R$ 80. Qual o valor do desconto, e por quanto o produto vai sair?\n\nPasso 1 — transformar 30% em decimal: divida 30 por 100. 30 ÷ 100 = 0,3.\n\nPasso 2 — calcular 30% de R$ 80: multiplique o valor pelo decimal. 80 × 0,3 = 24.\n\nPasso 3 — interpretar o resultado: esse cálculo (24) é o valor do desconto em reais, não o preço final.\n\nPasso 4 — para achar o preço final, subtraia o desconto do valor original: 80 − 24 = 56.\n\nO desconto é de R$ 24, e o produto sairá por R$ 56.',
         },
         {
           id: 'sec-5',
           type: 'example',
           title: 'Outro exemplo resolvido',
-          body: 'Em uma prova de 40 questões, um aluno acertou 34. Qual foi o seu percentual de acertos?\n\nPasso 1 — montar a fração: 34/40\nPasso 2 — transformar em porcentagem: (34 ÷ 40) × 100 = 0,85 × 100 = 85%\n\nO aluno acertou 85% da prova.',
+          body: 'Em uma prova de 40 questões, um aluno acertou 34. Qual foi o seu percentual de acertos?\n\nPasso 1 — montar a fração que representa a proporção de acertos: número de acertos sobre total de questões. 34/40.\n\nPasso 2 — transformar essa fração em decimal, dividindo o numerador pelo denominador: 34 ÷ 40 = 0,85.\n\nPasso 3 — transformar o decimal em porcentagem, multiplicando por 100 (ou "andando" a vírgula duas casas para a direita): 0,85 × 100 = 85.\n\nO aluno acertou 85% da prova.',
         },
         {
           id: 'sec-6',
@@ -535,7 +535,12 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: 'Somando 7 aos dois lados e dividindo por 4, chegamos a x = 5.',
-        stepByStep: ['4x − 7 = 13', '4x = 13 + 7 = 20', 'x = 20 ÷ 4', 'x = 5'],
+        stepByStep: [
+          'O x está sendo diminuído de 7, então fazemos a operação inversa (soma) nos dois lados para cancelar o −7: 4x − 7 + 7 = 13 + 7.',
+          'Calculamos cada lado: do lado esquerdo sobra 4x (porque −7 + 7 = 0); do lado direito, 13 + 7 = 20. A equação fica 4x = 20.',
+          'O x está sendo multiplicado por 4, então dividimos os dois lados por 4 para cancelar o × 4: 4x ÷ 4 = 20 ÷ 4.',
+          'Calculamos: do lado esquerdo sobra x; do lado direito, 20 ÷ 4 = 5. Resultado: x = 5.',
+        ],
       },
       {
         id: 'q2',
@@ -551,7 +556,14 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: 'Chamando o número de x: x + 3x = 28 → 4x = 28 → x = 7.',
-        stepByStep: ['x + 3x = 28', '4x = 28', 'x = 28 ÷ 4', 'x = 7'],
+        stepByStep: [
+          'Chame o número desconhecido de x. "O triplo dele" é 3x, e a soma do número com o triplo é x + 3x.',
+          'Monte a equação: x + 3x = 28.',
+          'Some os termos semelhantes do lado esquerdo: x + 3x = 4x (pense em 1x + 3x = 4x). A equação fica 4x = 28.',
+          'O x está sendo multiplicado por 4, então dividimos os dois lados por 4: 4x ÷ 4 = 28 ÷ 4.',
+          'Calculamos: do lado esquerdo sobra x; do lado direito, 28 ÷ 4 = 7. Resultado: x = 7.',
+          'Verificação: 7 + (3 × 7) = 7 + 21 = 28 ✓',
+        ],
       },
       {
         id: 'q3',
@@ -567,7 +579,12 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: '25% de 32 equivale a um quarto de 32, ou seja, 8 alunos.',
-        stepByStep: ['25% = 1/4', '32 ÷ 4 = 8', 'Resposta: 8 alunos'],
+        stepByStep: [
+          'Transforme 25% em fração: 25% significa 25/100. Simplificando (dividindo numerador e denominador por 25), 25/100 = 1/4.',
+          'Calcular 1/4 de um número é o mesmo que dividir esse número por 4.',
+          'Divida o total de alunos por 4: 32 ÷ 4 = 8.',
+          '8 alunos praticam natação.',
+        ],
       },
       {
         id: 'q4',
@@ -624,7 +641,14 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: 'Distribuindo o 2: 2x + 6 = 16 → 2x = 10 → x = 5.',
-        stepByStep: ['2(x + 3) = 16', '2x + 6 = 16', '2x = 10', 'x = 5'],
+        stepByStep: [
+          'Aplique a propriedade distributiva: o 2 multiplica cada termo dentro dos parênteses. 2 × x = 2x e 2 × 3 = 6. A equação fica 2x + 6 = 16.',
+          'O termo 6 está sendo somado, então subtraímos 6 dos dois lados para cancelá-lo: 2x + 6 − 6 = 16 − 6.',
+          'Calculamos cada lado: do lado esquerdo sobra 2x (6 − 6 = 0); do lado direito, 16 − 6 = 10. A equação fica 2x = 10.',
+          'O x está sendo multiplicado por 2, então dividimos os dois lados por 2: 2x ÷ 2 = 10 ÷ 2.',
+          'Calculamos: do lado esquerdo sobra x; do lado direito, 10 ÷ 2 = 5. Resultado: x = 5.',
+          'Verificação: 2 × (5 + 3) = 2 × 8 = 16 ✓',
+        ],
       },
     ],
 
@@ -643,7 +667,11 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: '15% de 200 é 200 × 0,15 = 30.',
-        stepByStep: ['15% = 0,15', '200 × 0,15 = 30'],
+        stepByStep: [
+          'Transforme 15% em decimal: divida 15 por 100. 15 ÷ 100 = 0,15.',
+          'Para calcular 15% de 200, multiplique o valor pelo decimal: 200 × 0,15.',
+          'Calcule a multiplicação: 200 × 0,15 = 30.',
+        ],
       },
       {
         id: 'pp2',
@@ -659,7 +687,12 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'a',
         explanation: '25% de 120 é 30. O novo preço é 120 − 30 = R$ 90.',
-        stepByStep: ['25% de 120 = 120 × 0,25 = 30', 'Novo preço: 120 − 30 = 90'],
+        stepByStep: [
+          'Transforme 25% em decimal: 25 ÷ 100 = 0,25.',
+          'Calcule o valor do desconto: multiplique o preço original pelo decimal. 120 × 0,25 = 30.',
+          'O valor calculado (30) é o desconto em reais, não o preço final — subtraia do valor original: 120 − 30 = 90.',
+          'O novo preço é R$ 90.',
+        ],
       },
       {
         id: 'pp3',
@@ -675,7 +708,13 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: 'Se 20% do número é 40, o número inteiro (100%) é 40 ÷ 0,2 = 200.',
-        stepByStep: ['20% = 0,2', 'x × 0,2 = 40', 'x = 40 ÷ 0,2 = 200'],
+        stepByStep: [
+          'Chame o número desconhecido de x. Transforme 20% em decimal: 20 ÷ 100 = 0,2.',
+          'Monte a equação: "20% de x é 40" vira x × 0,2 = 40.',
+          'Para isolar x, faça a operação inversa da multiplicação: divida os dois lados por 0,2. x = 40 ÷ 0,2.',
+          'Calcule a divisão: 40 ÷ 0,2 = 200 (dividir por 0,2 é o mesmo que multiplicar por 5, e 40 × 5 = 200).',
+          'O número procurado é 200.',
+        ],
       },
       {
         id: 'pp4',
@@ -707,7 +746,12 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: '60/80 = 0,75, que corresponde a 75%.',
-        stepByStep: ['Fração: 60/80', '60 ÷ 80 = 0,75', '0,75 = 75%'],
+        stepByStep: [
+          'Monte a fração que representa a proporção: pessoas que preferem futebol sobre o total de pessoas. 60/80.',
+          'Transforme a fração em decimal, dividindo o numerador pelo denominador: 60 ÷ 80 = 0,75.',
+          'Transforme o decimal em porcentagem, multiplicando por 100: 0,75 × 100 = 75.',
+          '75% das pessoas preferem futebol.',
+        ],
       },
       {
         id: 'pp6',
@@ -723,7 +767,12 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'd',
         explanation: '10% de 50 é 5. O valor final é 50 + 5 = R$ 55.',
-        stepByStep: ['10% de 50 = 50 × 0,1 = 5', 'Valor final: 50 + 5 = 55'],
+        stepByStep: [
+          'Transforme 10% em decimal: 10 ÷ 100 = 0,1.',
+          'Calcule o valor do aumento: multiplique o valor original pelo decimal. 50 × 0,1 = 5.',
+          'O valor calculado (5) é só o aumento — some ao valor original para achar o valor final: 50 + 5 = 55.',
+          'O valor final é R$ 55.',
+        ],
       },
     ],
 
@@ -915,7 +964,12 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: '45% de 200 é 200 × 0,45 = 90.',
-        stepByStep: ['45% = 0,45', '200 × 0,45 = 90'],
+        stepByStep: [
+          'Transforme 45% em decimal: 45 ÷ 100 = 0,45.',
+          'Calcule 45% de 200: multiplique o total pelo decimal. 200 × 0,45.',
+          'Calcule a multiplicação: 200 × 0,45 = 90.',
+          '90 produtos vendidos foram roupas.',
+        ],
       },
       {
         id: 'pv5',

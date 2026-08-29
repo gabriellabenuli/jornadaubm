@@ -378,13 +378,13 @@ export const joaoData: StudentData = {
           id: 'sec-4',
           type: 'example',
           title: 'Exemplo resolvido',
-          body: 'Calcule 5,3 + 2,45.\n\nPasso 1 — igualar as casas decimais: 5,30 + 2,45\nPasso 2 — somar alinhando as vírgulas: 5,30 + 2,45 = 7,75',
+          body: 'Calcule 5,3 + 2,45.\n\nPasso 1 — os dois números precisam ter a mesma quantidade de casas decimais antes de somar. 5,3 tem só uma casa decimal (o 3), enquanto 2,45 tem duas (o 4 e o 5). Complete 5,3 com um zero no final: 5,3 vira 5,30 (isso não muda o valor, porque 5,3 e 5,30 representam a mesma quantidade).\n\nPasso 2 — agora alinhe os números pela vírgula, um embaixo do outro:\n  5,30\n+ 2,45\n\nPasso 3 — some coluna por coluna, da direita para a esquerda, como numa soma normal: centésimos (0 + 5 = 5), décimos (3 + 4 = 7), depois desça a vírgula, e some a parte inteira (5 + 2 = 7).\n\nResultado: 5,30 + 2,45 = 7,75.',
         },
         {
           id: 'sec-5',
           type: 'example',
           title: 'Outro exemplo resolvido',
-          body: 'Calcule 8 − 3,6.\n\nPasso 1 — escrever 8 como 8,0\nPasso 2 — subtrair: 8,0 − 3,6 = 4,4',
+          body: 'Calcule 8 − 3,6.\n\nPasso 1 — o número 8 é inteiro, sem casas decimais escritas. Para poder alinhar com 3,6, escreva 8 como 8,0 (adicionando uma casa decimal com zero, o que não muda o valor).\n\nPasso 2 — alinhe os números pela vírgula:\n  8,0\n− 3,6\n\nPasso 3 — subtraia começando pela casa decimal: como 0 é menor que 6, "pegamos emprestado" 1 da parte inteira. O 8 vira 7, e o 0 dos décimos vira 10. Então 10 − 6 = 4 na casa decimal.\n\nPasso 4 — agora subtraia a parte inteira: 7 − 3 = 4.\n\nResultado: 8,0 − 3,6 = 4,4.',
         },
         {
           id: 'sec-6',
@@ -559,7 +559,13 @@ export const joaoData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: 'Alinhando as casas decimais: 0,40 + 0,25 = 0,65.',
-        stepByStep: ['0,40', '+ 0,25', '= 0,65'],
+        stepByStep: [
+          'Ambos já têm duas casas decimais (0,4 pode ser escrito como 0,40), então alinhe pela vírgula: 0,40 em cima, 0,25 embaixo.',
+          'Some a casa dos centésimos: 0 + 5 = 5.',
+          'Some a casa dos décimos: 4 + 2 = 6.',
+          'A parte inteira dos dois é 0, então o resultado começa com 0.',
+          'Juntando tudo: 0,65.',
+        ],
       },
       {
         id: 'q4',
@@ -638,7 +644,14 @@ export const joaoData: StudentData = {
         ],
         correctOptionId: 'b',
         explanation: 'Alinhando as vírgulas: 4,20 + 1,35 = 5,55.',
-        stepByStep: ['4,20', '+ 1,35', '= 5,55'],
+        stepByStep: [
+          'Iguale as casas decimais: 4,2 tem uma casa decimal, então complete com um zero para ficar com duas, igual a 1,35. 4,2 vira 4,20.',
+          'Alinhe os números pela vírgula, um embaixo do outro: 4,20 em cima, 1,35 embaixo.',
+          'Some a casa dos centésimos: 0 + 5 = 5.',
+          'Some a casa dos décimos: 2 + 3 = 5.',
+          'Some a parte inteira: 4 + 1 = 5.',
+          'Juntando tudo: 5,55.',
+        ],
       },
       {
         id: 'pd2',
@@ -654,7 +667,12 @@ export const joaoData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: '9,5 − 3,8 = 5,7.',
-        stepByStep: ['9,5', '− 3,8', '= 5,7'],
+        stepByStep: [
+          'Os dois números já têm a mesma quantidade de casas decimais (uma cada), então já podemos alinhar: 9,5 em cima, 3,8 embaixo.',
+          'Subtraia a casa dos décimos: 5 − 8 não dá para fazer direto (5 é menor que 8), então "pegue emprestado" 1 da parte inteira. O 9 vira 8, e o 5 dos décimos vira 15. Agora: 15 − 8 = 7.',
+          'Subtraia a parte inteira, já com o empréstimo: 8 − 3 = 5.',
+          'Juntando tudo: 5,7.',
+        ],
       },
       {
         id: 'pd3',
@@ -670,7 +688,11 @@ export const joaoData: StudentData = {
         ],
         correctOptionId: 'b',
         explanation: '3/10 significa 3 décimos, que se escreve 0,3.',
-        stepByStep: ['3/10 = 3 décimos', '3 décimos = 0,3'],
+        stepByStep: [
+          'O denominador 10 indica que essa fração representa "décimos" (a primeira casa depois da vírgula).',
+          'O numerador 3 indica quantos décimos temos: 3 décimos.',
+          'Escrevendo 3 décimos na forma decimal, colocamos o 3 na primeira casa depois da vírgula: 0,3.',
+        ],
       },
       {
         id: 'pd4',
@@ -702,7 +724,11 @@ export const joaoData: StudentData = {
         ],
         correctOptionId: 'b',
         explanation: '0,5 é o mesmo que 0,50, e 0,50 > 0,45.',
-        stepByStep: ['0,5 = 0,50', '0,50 > 0,45'],
+        stepByStep: [
+          'Para comparar, iguale a quantidade de casas decimais. 0,5 tem uma casa decimal; complete com um zero para ficar com duas, igual a 0,45: 0,5 vira 0,50 (isso não muda o valor).',
+          'Agora compare casa por casa, começando pela dos décimos: em 0,50 o décimo é 5; em 0,45 o décimo é 4.',
+          'Como 5 > 4, temos 0,50 > 0,45, ou seja, 0,5 > 0,45.',
+        ],
       },
       {
         id: 'pd6',
@@ -718,7 +744,13 @@ export const joaoData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: '7,50 + 2,25 = 9,75.',
-        stepByStep: ['7,50', '+ 2,25', '= 9,75'],
+        stepByStep: [
+          'Os dois valores já têm duas casas decimais cada, então já podem ser alinhados: 7,50 em cima, 2,25 embaixo.',
+          'Some a casa dos centésimos: 0 + 5 = 5.',
+          'Some a casa dos décimos: 5 + 2 = 7.',
+          'Some a parte inteira: 7 + 2 = 9.',
+          'Juntando tudo: R$ 9,75.',
+        ],
       },
     ],
 
@@ -889,7 +921,12 @@ export const joaoData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: '2,5 × 2 = 5.',
-        stepByStep: ['2,5 × 2', '= 5,0', '= 5'],
+        stepByStep: [
+          'Uma forma simples de multiplicar decimal por inteiro é pensar em partes: 2,5 é o mesmo que 2 inteiros mais meio (0,5).',
+          'Multiplique a parte inteira por 2: 2 × 2 = 4.',
+          'Multiplique a parte decimal por 2: 0,5 × 2 = 1 (meio mais meio é um inteiro).',
+          'Some os dois resultados: 4 + 1 = 5.',
+        ],
       },
       {
         id: 'it4',
@@ -937,7 +974,14 @@ export const joaoData: StudentData = {
         ],
         correctOptionId: 'b',
         explanation: '5,25 + 3,80 = 9,05.',
-        stepByStep: ['5,25', '+ 3,80', '= 9,05'],
+        stepByStep: [
+          'Iguale as casas decimais: 5,25 já tem duas casas; 3,8 tem só uma, então complete com um zero: 3,8 vira 3,80.',
+          'Alinhe os números pela vírgula: 5,25 em cima, 3,80 embaixo.',
+          'Some a casa dos centésimos: 5 + 0 = 5.',
+          'Some a casa dos décimos: 2 + 8 = 10. Escreva 0 e "carregue" 1 para a parte inteira.',
+          'Some a parte inteira, incluindo o 1 carregado: 5 + 3 + 1 = 9.',
+          'Juntando tudo: 9,05 km.',
+        ],
       },
     ],
   },
