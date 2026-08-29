@@ -741,8 +741,14 @@ export const nicolasData: StudentData = {
           { id: 'e', label: '5/3' },
         ],
         correctOptionId: 'a',
-        explanation: '18/30 simplificado (dividindo por 6) é 3/5.',
-        stepByStep: ['18/30', 'MDC entre 18 e 30 é 6', '18 ÷ 6 = 3 e 30 ÷ 6 = 5', 'Resultado: 3/5'],
+        explanation: '18/30 simplificado (dividindo numerador e denominador por 6) é 3/5.',
+        stepByStep: [
+          'A razão entre meninas e o total de alunos é "número de meninas" sobre "total de alunos": 18/30.',
+          'Para simplificar, encontre um número que divide tanto 18 quanto 30. Divisores de 18: 1, 2, 3, 6, 9, 18. Divisores de 30: 1, 2, 3, 5, 6, 10, 15, 30. O maior divisor comum aos dois é 6.',
+          'Divida o numerador por 6: 18 ÷ 6 = 3.',
+          'Divida o denominador por 6: 30 ÷ 6 = 5.',
+          'A razão simplificada é 3/5. Como 3 e 5 não têm mais divisores em comum além do 1, essa já é a forma mais simples.',
+        ],
       },
       {
         id: 'rp2',
@@ -758,7 +764,13 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: 'Multiplicação cruzada: 4 × 25 = 5 × x → 100 = 5x → x = 20.',
-        stepByStep: ['4 × 25 = 100', '5x = 100', 'x = 20'],
+        stepByStep: [
+          'Temos a proporção 4/5 = x/25. Em uma proporção, o produto do numerador de um lado pelo denominador do outro é sempre igual (multiplicação cruzada).',
+          'Multiplique o numerador da primeira fração (4) pelo denominador da segunda (25): 4 × 25 = 100.',
+          'Isso deve ser igual ao denominador da primeira fração (5) multiplicado pelo numerador da segunda (x): 5 × x.',
+          'Então temos a equação 5x = 100.',
+          'Para isolar x, divida os dois lados por 5: x = 100 ÷ 5 = 20.',
+        ],
       },
       {
         id: 'rp3',
@@ -774,7 +786,14 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: 'Multiplicação cruzada: 12/3 = 20/x → 12x = 3 × 20 = 60 → x = 5.',
-        stepByStep: ['12/3 = 20/x', '12x = 60', 'x = 5'],
+        stepByStep: [
+          'Monte a proporção com as duas grandezas na mesma ordem dos dois lados: pães sobre farinha. 12 pães para 3 kg, e 20 pães para x kg: 12/3 = 20/x.',
+          'Aplique a multiplicação cruzada: multiplique o numerador de um lado pelo denominador do outro. 12 × x de um lado, 3 × 20 do outro.',
+          'Calcule 3 × 20 = 60.',
+          'A equação fica 12x = 60.',
+          'Para isolar x, divida os dois lados por 12: x = 60 ÷ 12 = 5.',
+          'São necessários 5 kg de farinha para 20 pães.',
+        ],
       },
       {
         id: 'rp4',
@@ -806,7 +825,14 @@ export const nicolasData: StudentData = {
         ],
         correctOptionId: 'c',
         explanation: '2/7 = x/42 → 7x = 2 × 42 = 84 → x = 12.',
-        stepByStep: ['2/7 = x/42', '7x = 84', 'x = 12'],
+        stepByStep: [
+          'A razão idade de Pedro / idade do pai é 2/7. Chamando a idade de Pedro de x, montamos a proporção: 2/7 = x/42.',
+          'Aplique a multiplicação cruzada: 7 × x de um lado, 2 × 42 do outro.',
+          'Calcule 2 × 42 = 84.',
+          'A equação fica 7x = 84.',
+          'Para isolar x, divida os dois lados por 7: x = 84 ÷ 7 = 12.',
+          'Pedro tem 12 anos.',
+        ],
       },
       {
         id: 'rp6',

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Question } from '../../data/types'
 import { Confetti } from '../shared/Confetti'
+import { MathText } from '../shared/MathText'
 
 export function AnswerFeedback({
   question,
@@ -33,19 +34,23 @@ export function AnswerFeedback({
         <div>
           <span className="text-lg font-extrabold text-port-ink">Quase. Vamos entender.</span>
           <p className="mt-1 text-sm text-ink-soft">
-            Resposta correta: <strong>{correctLabel}</strong>
+            Resposta correta: <strong><MathText text={correctLabel ?? ''} /></strong>
           </p>
         </div>
       )}
 
-      <p className="text-ink-soft">{question.explanation}</p>
+      <p className="text-ink-soft">
+        <MathText text={question.explanation} />
+      </p>
 
       {!correct && (
         <div>
           <span className="text-sm font-semibold">Resolução passo a passo</span>
-          <ol className="mt-2 list-decimal space-y-1 pl-5 text-sm text-ink-soft">
+          <ol className="mt-2 list-decimal space-y-1.5 pl-5 text-sm text-ink-soft">
             {question.stepByStep.map((step, i) => (
-              <li key={i}>{step}</li>
+              <li key={i}>
+                <MathText text={step} />
+              </li>
             ))}
           </ol>
         </div>

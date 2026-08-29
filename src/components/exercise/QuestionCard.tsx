@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react'
 import type { Question } from '../../data/types'
 import { Badge } from '../shared/Badge'
+import { MathText } from '../shared/MathText'
 import { ComicIllustration, ChartIllustration, TableIllustration, PictureIllustration } from '../illustrations/Illustrations'
 
 const SUBJECT_TONE: Record<Question['subject'], 'math' | 'port' | 'essay'> = {
@@ -54,7 +55,9 @@ export function QuestionCard({
         </div>
       )}
 
-      <p className="text-xl font-semibold">{question.prompt}</p>
+      <p className="text-xl font-semibold">
+        <MathText text={question.prompt} />
+      </p>
 
       <div className="flex flex-col gap-2">
         {question.options.map((option) => {
@@ -76,7 +79,9 @@ export function QuestionCard({
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink/5 text-sm font-bold uppercase">
                 {option.id}
               </span>
-              <span>{option.label}</span>
+              <span>
+                <MathText text={option.label} />
+              </span>
             </button>
           )
         })}
