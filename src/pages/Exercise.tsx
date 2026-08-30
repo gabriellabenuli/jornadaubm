@@ -32,8 +32,15 @@ export default function Exercise() {
   function handleAnswer() {
     if (!selectedOptionId) return
     const correct = selectedOptionId === question.correctOptionId
-    recordAnswer(studentId as StudentId, { questionId: question.id, selectedOptionId, correct })
+    recordAnswer(studentId as StudentId, {
+      questionId: question.id,
+      selectedOptionId,
+      correct,
+      subject: question.subject,
+      topic: question.topic,
+    })
     addXP(studentId as StudentId, correct ? 5 : 0)
+    if (!correct) addToErrorNotebook(studentId as StudentId, question.id)
     setRevealed(true)
   }
 
@@ -74,7 +81,6 @@ export default function Exercise() {
         <AnswerFeedback
           question={question}
           selectedOptionId={selectedOptionId as string}
-          onAddToErrorNotebook={() => addToErrorNotebook(studentId as StudentId, question.id)}
           onNext={handleNext}
           isLast={isLast}
         />

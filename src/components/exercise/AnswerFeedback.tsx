@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import type { Question } from '../../data/types'
 import { Confetti } from '../shared/Confetti'
 import { MathText } from '../shared/MathText'
@@ -6,17 +5,14 @@ import { MathText } from '../shared/MathText'
 export function AnswerFeedback({
   question,
   selectedOptionId,
-  onAddToErrorNotebook,
   onNext,
   isLast,
 }: {
   question: Question
   selectedOptionId: string
-  onAddToErrorNotebook: () => void
   onNext: () => void
   isLast: boolean
 }) {
-  const [added, setAdded] = useState(false)
   const correct = selectedOptionId === question.correctOptionId
   const correctLabel = question.options.find((o) => o.id === question.correctOptionId)?.label
 
@@ -58,16 +54,9 @@ export function AnswerFeedback({
 
       <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
         {!correct ? (
-          <button
-            onClick={() => {
-              onAddToErrorNotebook()
-              setAdded(true)
-            }}
-            disabled={added}
-            className="order-2 rounded-xl2 border border-ink/15 bg-white px-4 py-2.5 text-sm font-semibold transition-opacity disabled:opacity-60 sm:order-1 sm:py-2"
-          >
-            {added ? 'Adicionado ✓' : 'Adicionar ao caderno de erros'}
-          </button>
+          <span className="order-2 text-sm font-semibold text-port-ink sm:order-1">
+            Adicionada ao caderno de erros ✓
+          </span>
         ) : (
           <span className="hidden sm:block" />
         )}
